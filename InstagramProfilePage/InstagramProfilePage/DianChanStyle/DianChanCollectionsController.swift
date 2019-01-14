@@ -99,9 +99,9 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
             leftButton.heightAnchor.constraint(equalTo: rightButton.heightAnchor),
             leftButton.trailingAnchor.constraint(equalTo: rightButton.leadingAnchor),
             
-            rightButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            rightButton.topAnchor.constraint(equalTo: view.topAnchor),
             rightButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            rightButton.heightAnchor.constraint(equalToConstant: 20),
+            rightButton.heightAnchor.constraint(equalToConstant: 30),
             
             slider.widthAnchor.constraint(equalTo: rightButton.widthAnchor, multiplier: 1.0),
             slider.heightAnchor.constraint(equalToConstant: 5),
@@ -110,7 +110,7 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
             collectionView.topAnchor.constraint(equalTo: slider.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         
         sliderLeading.isActive = true
@@ -127,7 +127,9 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
             self.addChildViewController($0)
             $0.didMove(toParentViewController: self)
             let v = $0 as? DianChanDummyCollectionViewController
-            v?.delegate = self
+            if self.delegate != nil {
+                v?.delegate = self
+            }
         }
     }
     
@@ -154,6 +156,7 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+        print("CELL SIZE : \(size)")
         return size
     }
     
@@ -168,7 +171,11 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
     }
     
     func collectionViewDidReachTop(in viewController: UIViewController, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        delegate?.collectionViewDidReachTop(in: viewController, withVelocity: velocity, targetContentOffset: targetContentOffset)
+        
+        guard let delegate = delegate else {
+            return
+        }
+        delegate.collectionViewDidReachTop(in: viewController, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
 }
 

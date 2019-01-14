@@ -52,6 +52,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         v.translatesAutoresizingMaskIntoConstraints = false
         v.delegate = self
         v.showsVerticalScrollIndicator = false
+        v.contentInsetAdjustmentBehavior = .never
         return v
     }()
     
@@ -77,6 +78,16 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         return v
     }()
     
+    private lazy var collectionContainerView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
+    private lazy var collectionContainerViewBottomAnchor: NSLayoutConstraint = {
+        return collectionContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -view.safeAreaInsets.top)
+    }()
+    
     func collectionViewDidReachTop(in viewController: UIViewController, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         scrollView.isScrollEnabled = true
         scrollViewWillEndDragging(self.scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
@@ -85,21 +96,26 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         profileContainerView.frame.size.width = view.frame.width
+        collectionViewController.view.frame = collectionContainerView.bounds
         view.layoutIfNeeded()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         profileContainerView.frame.size.height = profileViewController.view.frame.height
-        scrollView.contentSize = containerView.frame.size
+        collectionContainerViewBottomAnchor.constant = -view.safeAreaInsets.top
+        collectionViewController.view.layoutIfNeeded()
+        scrollView.contentSize = CGSize(width: containerView.frame.width, height: containerView.frame.height)
         gradientLayer.frame = containerView.bounds
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupScrollView()
         setupProfileContainerView()
         setupProfileViewController()
+        setupCollectionContainerView()
         setupCollectionViewControllers()
         DispatchQueue.main.async {
             self.gradientLayer.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
@@ -146,35 +162,49 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     private func setupProfileContainerView() {
         containerView.addSubview(profileContainerView)
         containerView.addConstraints([
-            containerView.bottomAnchor.constraint(equalTo: profileContainerView.bottomAnchor, constant: UIScreen.main.bounds.height),
+            containerView.bottomAnchor.constraint(equalTo: profileContainerView.bottomAnchor, constant: UIScreen.main.bounds.height - 44),
             profileContainerView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
             profileContainerView.topAnchor.constraint(equalTo: containerView.topAnchor),
             profileContainerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
             ])
     }
     
+    private func setupCollectionContainerView() {
+        containerView.addSubview(collectionContainerView)
+        containerView.addConstraints([
+            collectionContainerView.topAnchor.constraint(equalTo: profileContainerView.bottomAnchor),
+            collectionContainerView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            collectionContainerView.widthAnchor.constraint(equalTo: containerView.widthAnchor)
+            ])
+        
+        collectionContainerViewBottomAnchor.isActive = true
+    }
+    
     private func setupCollectionViewControllers() {
         self.addChildViewController(collectionViewController)
-        containerView.addSubview(collectionViewController.view)
+        collectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        collectionContainerView.addSubview(collectionViewController.view)
         collectionViewController.didMove(toParentViewController: self)
         
-        collectionViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addConstraints([
-            collectionViewController.view.topAnchor.constraint(equalTo: profileContainerView.bottomAnchor),
-            collectionViewController.view.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            collectionViewController.view.widthAnchor.constraint(equalTo: containerView.widthAnchor),
-            collectionViewController.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        collectionContainerView.addConstraints([
+            collectionViewController.view.topAnchor.constraint(equalTo: collectionContainerView.topAnchor),
+            collectionViewController.view.centerXAnchor.constraint(equalTo: collectionContainerView.centerXAnchor),
+            collectionViewController.view.widthAnchor.constraint(equalTo: collectionContainerView.widthAnchor, multiplier: 1.0),
+            collectionViewController.view.bottomAnchor.constraint(equalTo: collectionContainerView.bottomAnchor)
             ])
+        
+        collectionViewController.view.layoutIfNeeded()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        print(targetContentOffset.pointee)
-        print(scrollView.contentSize.height - view.frame.height)
-        print("Original Offset : \(scrollView.contentOffset)")
+//        print(targetContentOffset.pointee)
+//        print(scrollView.contentSize.height - view.frame.height)
+//        print("Original Offset : \(scrollView.contentOffset)")
         if scrollView == self.scrollView {
             if targetContentOffset.pointee.y >= scrollView.contentSize.height - view.frame.height {
+                return
                 targetContentOffset.pointee = CGPoint(x: 0, y: scrollView.contentSize.height - view.frame.height)
-                scrollView.isScrollEnabled = false
+//                scrollView.isScrollEnabled = false
                 collectionViewController.collectionViewAllowScrolling(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
             }
         }
@@ -182,12 +212,16 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
+//            print("Original Offset : \(scrollView.contentOffset)")
+            // Stop ScrollView to Over scroll to the top
             if scrollView.contentOffset.y <= 0 {
                 scrollView.contentOffset.y = 0
                 return
             }
+            
             if scrollView.contentOffset.y == (scrollView.contentSize.height - view.frame.height) {
-                scrollView.isScrollEnabled = false
+//                return
+//                scrollView.isScrollEnabled = false
                 var pointer = CGPoint(x: 0, y: 0)
                 collectionViewController.collectionViewAllowScrolling(scrollView, withVelocity: .zero, targetContentOffset: withUnsafeMutablePointer(to: &pointer, {
                     $0

@@ -45,6 +45,7 @@ class ViewController: UITableViewController {
         switch style {
         case .dianChanStyle:
             let vc = DianChanViewController()
+//            self.present(vc, animated: true, completion: nil)
             navigationController?.pushViewController(vc, animated: true)
             break;
         case .simpleCollectionView:
