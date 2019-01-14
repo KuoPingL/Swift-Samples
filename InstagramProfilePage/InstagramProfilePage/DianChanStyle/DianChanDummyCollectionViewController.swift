@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol DianChanDummyCollectionViewControllerDelegate: NSObjectProtocol {
-    func collectionViewDidReachTop(in viewController: UIViewController, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+    func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
 }
 
 protocol DianChanDummyCollectionViewControllerProtocol: NSObjectProtocol {
@@ -23,7 +23,13 @@ class DianChanDummyCollectionViewController: UICollectionViewController, UIColle
         case photo
     }
     
-    weak var delegate: DianChanDummyCollectionViewControllerDelegate?
+    weak var delegate: DianChanDummyCollectionViewControllerDelegate? {
+        didSet {
+            if delegate != nil {
+                collectionView?.isScrollEnabled = false
+            }
+        }
+    }
     
     private let type: Types
     private let cellID = "cellId"
@@ -36,9 +42,6 @@ class DianChanDummyCollectionViewController: UICollectionViewController, UIColle
         flowlayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         
         collectionView?.collectionViewLayout = flowlayout
-        if delegate != nil {
-            collectionView?.isScrollEnabled = false
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -92,28 +95,43 @@ class DianChanDummyCollectionViewController: UICollectionViewController, UIColle
     }
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
         if targetContentOffset.pointee.y <= 0 {
             guard let delegate = delegate else {
                 return
             }
             scrollView.contentOffset.y = 0
-//            scrollView.isScrollEnabled = false
+            scrollView.isScrollEnabled = false
             delegate.collectionViewDidReachTop(in: self, withVelocity: velocity, targetContentOffset: targetContentOffset)
         }
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         if scrollView == collectionView {
             guard let delegate = delegate else {
                 // normal action
                 return
             }
             
-//            if scrollView.contentOffset.y <= 0 {
-//                scrollView.contentOffset.y = 0
-//            }
+            if scrollView.contentOffset.y <= 0 {
+                scrollView.contentOffset.y = 0
+                if collectionViewShouldDisableScrolling {
+                    weak var vc = self
+                    var pointer = CGPoint.zero
+                    delegate.collectionViewDidReachTop(in: vc, withVelocity: .zero, targetContentOffset: withUnsafeMutablePointer(to: &pointer, {
+                        $0
+                    }))
+                } else {
+                    collectionViewShouldDisableScrolling = true
+                }
+            }
         }
+    }
+    
+    private var collectionViewShouldDisableScrolling = true
+    func collectionViewScrollToTop() {
+        collectionViewShouldDisableScrolling = false
+        collectionView?.setContentOffset(.zero, animated: true)
     }
 }
 
@@ -121,8 +139,6 @@ extension DianChanDummyCollectionViewController: DianChanDummyCollectionViewCont
     
     func collectionViewAllowScrolling(_ scrollView: UIScrollView?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         collectionView?.isScrollEnabled = true
-//        print("targetContentOffset : \(targetContentOffset.pointee)")
-//        print("velocity : \(velocity)")
 //        if velocity.y > 0, let scrollView = scrollView {
 //            scrollViewWillEndDragging(self.collectionView! , withVelocity: velocity, targetContentOffset: targetContentOffset)
 ////            let contentOffsetY = scrollView.contentOffset.y

@@ -68,7 +68,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     
     private lazy var profileContainerView: UIView = {
         let v = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 0))
-        v.backgroundColor = .brown
+//        v.backgroundColor = .brown
         return v
     }()
     
@@ -88,7 +88,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         return collectionContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -view.safeAreaInsets.top)
     }()
     
-    func collectionViewDidReachTop(in viewController: UIViewController, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         scrollView.isScrollEnabled = true
         scrollViewWillEndDragging(self.scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
@@ -118,7 +118,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         setupCollectionContainerView()
         setupCollectionViewControllers()
         DispatchQueue.main.async {
-            self.gradientLayer.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
+            self.gradientLayer.colors = [UIColor.purple.cgColor, UIColor.black.cgColor]
             self.gradientLayer.startPoint = CGPoint(x: 1, y: 1)
             self.gradientLayer.endPoint = CGPoint(x: 0, y: 0)
             self.gradientLayer.frame = self.containerView.bounds
@@ -197,14 +197,11 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        print(targetContentOffset.pointee)
-//        print(scrollView.contentSize.height - view.frame.height)
-//        print("Original Offset : \(scrollView.contentOffset)")
         if scrollView == self.scrollView {
             if targetContentOffset.pointee.y >= scrollView.contentSize.height - view.frame.height {
-                return
+//                return
                 targetContentOffset.pointee = CGPoint(x: 0, y: scrollView.contentSize.height - view.frame.height)
-//                scrollView.isScrollEnabled = false
+                scrollView.isScrollEnabled = false
                 collectionViewController.collectionViewAllowScrolling(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
             }
         }
@@ -212,16 +209,14 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
-//            print("Original Offset : \(scrollView.contentOffset)")
             // Stop ScrollView to Over scroll to the top
-            if scrollView.contentOffset.y <= 0 {
-                scrollView.contentOffset.y = 0
-                return
-            }
+//            if scrollView.contentOffset.y <= 0 {
+//                scrollView.contentOffset.y = 0
+//                return
+//            }
             
             if scrollView.contentOffset.y == (scrollView.contentSize.height - view.frame.height) {
-//                return
-//                scrollView.isScrollEnabled = false
+                scrollView.isScrollEnabled = false
                 var pointer = CGPoint(x: 0, y: 0)
                 collectionViewController.collectionViewAllowScrolling(scrollView, withVelocity: .zero, targetContentOffset: withUnsafeMutablePointer(to: &pointer, {
                     $0

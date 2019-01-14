@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol DianChanCollectionsControllerDelegate: NSObjectProtocol {
-    func collectionViewDidReachTop(in viewController: UIViewController, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+    func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
 }
 
 protocol DianChanCollectionsControllerProtocol: NSObjectProtocol {
@@ -156,8 +156,13 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-        print("CELL SIZE : \(size)")
         return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let controller = controllers[indexPath.row] as? DianChanDummyCollectionViewController {
+            controller.collectionViewScrollToTop()
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -170,11 +175,18 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
         }
     }
     
-    func collectionViewDidReachTop(in viewController: UIViewController, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        // Triggered when Parent ScrollView has reached the TOP
         
         guard let delegate = delegate else {
             return
         }
+        
+        _ = controllers.map {
+            let v = $0 as? DianChanDummyCollectionViewController
+            v?.collectionView?.isScrollEnabled = false
+        }
+        
         delegate.collectionViewDidReachTop(in: viewController, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
 }
