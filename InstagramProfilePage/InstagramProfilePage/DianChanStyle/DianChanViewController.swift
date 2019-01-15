@@ -68,7 +68,6 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     
     private lazy var profileContainerView: UIView = {
         let v = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 0))
-//        v.backgroundColor = .brown
         return v
     }()
     
