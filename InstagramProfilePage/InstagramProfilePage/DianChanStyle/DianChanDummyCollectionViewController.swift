@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 
+// Protocol 為了通知 Delegate 而執行的
 protocol DianChanDummyCollectionViewControllerDelegate: NSObjectProtocol {
     func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
 }
 
+// Protocol 由 DianChanDummyCollectionViewController 執行的
 protocol DianChanDummyCollectionViewControllerProtocol: NSObjectProtocol {
     func collectionViewAllowScrolling(_ scrollView: UIScrollView?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
 }
@@ -102,6 +104,7 @@ class DianChanDummyCollectionViewController: UICollectionViewController, UIColle
         return size
     }
     
+    // MARK:- 拖拉完成 / 轉動後的反應
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         // 當 CollectionView 托拉完成時，如果最後的位置是最頂部 targetContentOffset.pointee.y <= 0
@@ -113,7 +116,7 @@ class DianChanDummyCollectionViewController: UICollectionViewController, UIColle
             }
             scrollView.contentOffset.y = 0
             scrollView.isScrollEnabled = false
-            // DianChanDummyCollectionViewController -通知-> DianChanCollectionsController -通知-> DianChanViewController 
+            // DianChanDummyCollectionViewController -通知-> DianChanCollectionsController -通知-> DianChanViewController
             delegate.collectionViewDidReachTop(in: self, withVelocity: velocity, targetContentOffset: targetContentOffset)
         }
     }
@@ -163,6 +166,9 @@ extension DianChanDummyCollectionViewController: DianChanDummyCollectionViewCont
     // DianChanViewController -通知-> DianChanCollectionsController -通知-> DianChanDummyCollectionViewController
     func collectionViewAllowScrolling(_ scrollView: UIScrollView?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         collectionView?.isScrollEnabled = true
+        
+        // 以下是我在測試的部分 !!! IGNORE
+        
 //        if velocity.y > 0, let scrollView = scrollView {
 //            scrollViewWillEndDragging(self.collectionView! , withVelocity: velocity, targetContentOffset: targetContentOffset)
 ////            let contentOffsetY = scrollView.contentOffset.y

@@ -37,6 +37,20 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .right, animated: true)
     }
     
+    private lazy var centerButton: UIButton = {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitle("Center Button", for: .normal)
+        b.setTitleColor(.white, for: .normal)
+        b.backgroundColor = .black
+        b.addTarget(self, action: #selector(centerButtonPressed(_:)), for: .touchUpInside)
+        return b
+    }()
+    
+    @objc private func centerButtonPressed(_ sender: UIButton) {
+        collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .right, animated: true)
+    }
+    
     private lazy var rightButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +62,7 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
     }()
     
     @objc private func rightButtonPressed(_ sender: UIButton) {
-        collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .right, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 2, section: 0), at: .right, animated: true)
     }
     
     private let slider: UIView = {
@@ -74,7 +88,8 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
     }()
     
     private lazy var controllers: [UIViewController] = {
-        return [DianChanDummyCollectionViewController(.photo), DianChanDummyCollectionViewController(.advertice)]
+        return [DianChanDummyCollectionViewController(.photo), DianChanDummyCollectionViewController(.advertice),
+                DianChanDummyCollectionViewController(.photo)]
     }()
     
     
@@ -88,6 +103,7 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
         super.viewDidLoad()
         
         view.addSubview(leftButton)
+        view.addSubview(centerButton)
         view.addSubview(rightButton)
         view.addSubview(slider)
         view.addSubview(collectionView)
@@ -97,7 +113,12 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
             leftButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             leftButton.widthAnchor.constraint(equalTo: rightButton.widthAnchor),
             leftButton.heightAnchor.constraint(equalTo: rightButton.heightAnchor),
-            leftButton.trailingAnchor.constraint(equalTo: rightButton.leadingAnchor),
+            leftButton.trailingAnchor.constraint(equalTo: centerButton.leadingAnchor),
+            
+            centerButton.topAnchor.constraint(equalTo: rightButton.topAnchor),
+            centerButton.trailingAnchor.constraint(equalTo: rightButton.leadingAnchor),
+            centerButton.widthAnchor.constraint(equalTo: rightButton.widthAnchor),
+            centerButton.heightAnchor.constraint(equalTo: rightButton.heightAnchor),
             
             rightButton.topAnchor.constraint(equalTo: view.topAnchor),
             rightButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -123,6 +144,7 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
         flowout.sectionInset = .zero
         collectionView.collectionViewLayout = flowout
         
+        // 將 DianChanDummyCollectionViewController 加入，並設 Delegate 為 self
         _ = controllers.map {
             self.addChildViewController($0)
             $0.didMove(toParentViewController: self)
@@ -139,7 +161,7 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
         print("DianChanCollectionsController DidAppear View : \(view.frame)")
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {        return 2
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -161,10 +183,12 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let controller = controllers[indexPath.row] as? DianChanDummyCollectionViewController {
+            //MARK: 這裡可以將你要的 Models 帶入 controller
             controller.collectionViewScrollToTop()
         }
     }
     
+    //MARK:- CollectionView 滑動時，上方的 UIView (滑動的 Bar) 會相對的位移
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == collectionView {
             let contentOffsetX = scrollView.contentOffset.x
@@ -175,9 +199,11 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
         }
     }
     
+    //MARK:- DianChanDummyCollectionViewControllerDelegate
     func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // Triggered when Parent ScrollView has reached the TOP
-        
+        // 當被呼叫，代表當中 Controller 的 CollectionView 已 Scroll 至最上方
+        // 此時就告知 DianChanViewController 的 ScrollView 可以開始滑動了
         guard let delegate = delegate else {
             return
         }
@@ -192,6 +218,8 @@ class DianChanCollectionsController: UIViewController, UICollectionViewDelegateF
 }
 
 extension DianChanCollectionsController: DianChanCollectionsControllerProtocol {
+    // MARK:- DianChanCollectionsControllerProtocol
+    // 當 DianChanViewController 的 ScrollView 已 Scroll 至最上方，這會被呼叫，並讓 DianChanDummyCollectionViewController 的 CollectionView 可以開始轉動。
     func collectionViewAllowScrolling(_ scrollView: UIScrollView?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         _ = controllers.map {
             let v = $0 as? DianChanDummyCollectionViewController

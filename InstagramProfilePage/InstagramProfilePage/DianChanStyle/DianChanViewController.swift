@@ -47,6 +47,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         navigationItem.rightBarButtonItem = pointBarButtonItem
     }
     
+    //MARK:- 設定 Layout
     private lazy var scrollView: UIScrollView = {
         let v = UIScrollView(frame: view.bounds)
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +72,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         return v
     }()
     
+    // MARK: 最下面 CollectionView 的 Controller 與 它的 ContainerView
     private lazy var collectionViewController: DianChanCollectionsController = {
         let v = DianChanCollectionsController()
         v.delegate = self
@@ -86,12 +88,14 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
     private lazy var collectionContainerViewBottomAnchor: NSLayoutConstraint = {
         return collectionContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -view.safeAreaInsets.top)
     }()
+    //MARK: 執行 DianChanCollectionsControllerDelegate
     
     func collectionViewDidReachTop(in viewController: UIViewController?, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         scrollView.isScrollEnabled = true
         scrollViewWillEndDragging(self.scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
     
+    //MARK: 旋轉螢幕後的重設
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         profileContainerView.frame.size.width = view.frame.width
@@ -99,6 +103,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         view.layoutIfNeeded()
     }
     
+    // 重新計算正確位置與 Size
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         profileContainerView.frame.size.height = profileViewController.view.frame.height
@@ -116,6 +121,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         setupProfileViewController()
         setupCollectionContainerView()
         setupCollectionViewControllers()
+        // 設定 GradientLayer
         DispatchQueue.main.async {
             self.gradientLayer.colors = [UIColor.purple.cgColor, UIColor.black.cgColor]
             self.gradientLayer.startPoint = CGPoint(x: 1, y: 1)
@@ -195,10 +201,14 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
         collectionViewController.view.layoutIfNeeded()
     }
     
+    //MARK:- 當 ScrollView 拖拉完成後的反應
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
         if scrollView == self.scrollView {
+            // 如果 ContentOffset.y 超過我設定的高度 (在 ProfileView 的粉絲人數上方)，就停止滑動。
+            // 並通知 DianChanCollectionsController， ScrollView 以滑到最上方了。
+            // 這時， DianChanCollectionsController 就會經由 DianChanDummyCollectionViewControllerDelegate 通知 DianChanDummyCollectionViewController 並讓 CollectionView 可滑行。
             if targetContentOffset.pointee.y >= scrollView.contentSize.height - view.frame.height {
-//                return
                 targetContentOffset.pointee = CGPoint(x: 0, y: scrollView.contentSize.height - view.frame.height)
                 scrollView.isScrollEnabled = false
                 collectionViewController.collectionViewAllowScrolling(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
@@ -214,6 +224,7 @@ class DianChanViewController: UIViewController, UIScrollViewDelegate, DianChanCo
 //                return
 //            }
             
+            // 這與上方同樣的道理
             if scrollView.contentOffset.y == (scrollView.contentSize.height - view.frame.height) {
                 scrollView.isScrollEnabled = false
                 var pointer = CGPoint(x: 0, y: 0)
