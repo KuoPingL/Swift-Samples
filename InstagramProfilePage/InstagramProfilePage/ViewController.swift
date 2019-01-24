@@ -11,9 +11,10 @@ import UIKit
 enum InstagramProfilePageStyles: String {
     case
     dianChanStyle = "典昌 Style",
+    dianChanCollectionView = "典昌 Style CollectionView",
     simpleCollectionView = "Simple CollectionView Style"
     
-    static let list: [InstagramProfilePageStyles] = [dianChanStyle, simpleCollectionView]
+    static let list: [InstagramProfilePageStyles] = [dianChanStyle, dianChanCollectionView, simpleCollectionView]
 }
 
 class ViewController: UITableViewController {
@@ -48,6 +49,9 @@ class ViewController: UITableViewController {
 //            self.present(vc, animated: true, completion: nil)
             navigationController?.pushViewController(vc, animated: true)
             break;
+        case .dianChanCollectionView:
+            let vc = DianChanCollectionViewController.init(collectionViewLayout: .init())
+            navigationController?.pushViewController(vc, animated: true)
         case .simpleCollectionView:
             
             break;

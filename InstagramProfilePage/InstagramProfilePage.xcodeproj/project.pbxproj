@@ -13,6 +13,10 @@
 		BF7D1D6621E763ED005CA768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7D1D6421E763ED005CA768 /* LaunchScreen.storyboard */; };
 		BF7D1D6F21E7653B005CA768 /* DianChanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D1D6E21E7653B005CA768 /* DianChanViewController.swift */; };
 		BF7D1D7221E766F0005CA768 /* DianChanUserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D1D7121E766F0005CA768 /* DianChanUserProfileController.swift */; };
+		BFAD920421F859C9002CEF0F /* DianChanCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD920321F859C8002CEF0F /* DianChanCollectionViewController.swift */; };
+		BFAD920621F85D1E002CEF0F /* DianChanCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD920521F85D1E002CEF0F /* DianChanCollectionViewLayout.swift */; };
+		BFAD920821F86F6B002CEF0F /* EqualSeparateCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD920721F86F6B002CEF0F /* EqualSeparateCollectionLayout.swift */; };
+		BFAD920A21F89E7E002CEF0F /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD920921F89E7E002CEF0F /* GridLayout.swift */; };
 		BFB9EF3C21E87F1900B74D96 /* DianChanCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3B21E87F1800B74D96 /* DianChanCollectionsController.swift */; };
 		BFB9EF3E21E88F7900B74D96 /* DianChanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */; };
 		BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */; };
@@ -28,6 +32,10 @@
 		BF7D1D6721E763ED005CA768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7D1D6E21E7653B005CA768 /* DianChanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanViewController.swift; sourceTree = "<group>"; };
 		BF7D1D7121E766F0005CA768 /* DianChanUserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanUserProfileController.swift; sourceTree = "<group>"; };
+		BFAD920321F859C8002CEF0F /* DianChanCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanCollectionViewController.swift; sourceTree = "<group>"; };
+		BFAD920521F85D1E002CEF0F /* DianChanCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanCollectionViewLayout.swift; sourceTree = "<group>"; };
+		BFAD920721F86F6B002CEF0F /* EqualSeparateCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualSeparateCollectionLayout.swift; sourceTree = "<group>"; };
+		BFAD920921F89E7E002CEF0F /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		BFB9EF3B21E87F1800B74D96 /* DianChanCollectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanCollectionsController.swift; sourceTree = "<group>"; };
 		BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanCell.swift; sourceTree = "<group>"; };
 		BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanDummyCollectionViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 		BF7D1D7021E765B6005CA768 /* CollectionViewStyle */ = {
 			isa = PBXGroup;
 			children = (
+				BFAD920321F859C8002CEF0F /* DianChanCollectionViewController.swift */,
+				BFAD920521F85D1E002CEF0F /* DianChanCollectionViewLayout.swift */,
+				BFAD920721F86F6B002CEF0F /* EqualSeparateCollectionLayout.swift */,
+				BFAD920921F89E7E002CEF0F /* GridLayout.swift */,
 			);
 			path = CollectionViewStyle;
 			sourceTree = "<group>";
@@ -167,9 +179,13 @@
 			files = (
 				BFB9EF3C21E87F1900B74D96 /* DianChanCollectionsController.swift in Sources */,
 				BFB9EF3E21E88F7900B74D96 /* DianChanCell.swift in Sources */,
+				BFAD920821F86F6B002CEF0F /* EqualSeparateCollectionLayout.swift in Sources */,
+				BFAD920A21F89E7E002CEF0F /* GridLayout.swift in Sources */,
 				BF7D1D7221E766F0005CA768 /* DianChanUserProfileController.swift in Sources */,
 				BFB9EF4221E8C36400B74D96 /* BlankViewController.swift in Sources */,
+				BFAD920421F859C9002CEF0F /* DianChanCollectionViewController.swift in Sources */,
 				BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */,
+				BFAD920621F85D1E002CEF0F /* DianChanCollectionViewLayout.swift in Sources */,
 				BF7D1D5E21E763E9005CA768 /* ViewController.swift in Sources */,
 				BF7D1D5C21E763E9005CA768 /* AppDelegate.swift in Sources */,
 				BF7D1D6F21E7653B005CA768 /* DianChanViewController.swift in Sources */,
