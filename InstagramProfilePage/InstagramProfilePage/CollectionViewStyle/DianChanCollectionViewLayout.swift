@@ -95,7 +95,7 @@ class DianChanCollectionViewLayout: UICollectionViewFlowLayout {
                 
                 // 當新的組要開始畫的時候，計算第一個格子的位置
                 let origin = CGPoint(x: firstFrame.origin.x,
-                                         y: firstFrame.origin.y + multiplier * unitHeight)
+                                     y: firstFrame.origin.y + multiplier * unitHeight)
                 firstFrame = CGRect(origin: origin,
                                     size: firstFrame.size)
                 segmentFrame = firstFrame
