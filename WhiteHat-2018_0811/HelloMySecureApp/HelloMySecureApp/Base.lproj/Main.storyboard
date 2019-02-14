@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HelloMySecureApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ggt-NK-Gfx">
+                                <rect key="frame" x="8" y="28" width="56" height="30"/>
+                                <state key="normal" title="API Test"/>
+                                <connections>
+                                    <action selector="apiTestBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AyU-FG-W3Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVp-Nq-vDv">
+                                <rect key="frame" x="8" y="78" width="115" height="30"/>
+                                <state key="normal" title="SSL Pinning Test"/>
+                                <connections>
+                                    <action selector="sslPinningBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qae-bo-6f9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seh-m3-3hf">
+                                <rect key="frame" x="8" y="128" width="117" height="30"/>
+                                <state key="normal" title="Save to Keychain"/>
+                                <connections>
+                                    <action selector="saveToKeychainBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vjy-t2-1lH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHw-ue-an8">
+                                <rect key="frame" x="8" y="178" width="136" height="30"/>
+                                <state key="normal" title="Load from Keychain"/>
+                                <connections>
+                                    <action selector="loadFromKeychainBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dnl-Dn-crs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2In-OJ-RVe">
+                                <rect key="frame" x="286" y="28" width="81" height="30"/>
+                                <state key="normal" title="Encrypt File"/>
+                                <connections>
+                                    <action selector="encryptFileBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2k-Hf-QSW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Afy-K9-TNy">
+                                <rect key="frame" x="287" y="78" width="80" height="30"/>
+                                <state key="normal" title="Decrypt file"/>
+                                <connections>
+                                    <action selector="decryptFileBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r9G-wg-5bp"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dm1-X7-2Tr">
+                                <rect key="frame" x="10" y="479.5" width="355" height="177.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dm1-X7-2Tr" secondAttribute="height" multiplier="2" id="yvr-6K-uRK"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="5bP-Xf-SJL">
+                                <rect key="frame" x="8" y="429.5" width="359" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5d-IX-jE9">
+                                        <rect key="frame" x="0.0" y="0.0" width="271.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYR-t5-eFu">
+                                        <rect key="frame" x="304.5" y="0.0" width="54.5" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="submitBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c7U-fs-Atp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VYR-t5-eFu" firstAttribute="width" secondItem="w5d-IX-jE9" secondAttribute="width" multiplier="0.2" id="Zjg-Ms-wEd"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dm1-X7-2Tr" secondAttribute="bottom" constant="10" id="5G1-JJ-r43"/>
+                            <constraint firstItem="Afy-K9-TNy" firstAttribute="trailing" secondItem="2In-OJ-RVe" secondAttribute="trailing" id="5Oh-Nx-ocQ"/>
+                            <constraint firstItem="Dm1-X7-2Tr" firstAttribute="top" secondItem="5bP-Xf-SJL" secondAttribute="bottom" constant="20" id="BkH-yk-ZTr"/>
+                            <constraint firstItem="Ggt-NK-Gfx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="HSt-Fj-QfR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dm1-X7-2Tr" secondAttribute="trailing" constant="10" id="HaA-SE-nf6"/>
+                            <constraint firstItem="UHw-ue-an8" firstAttribute="leading" secondItem="seh-m3-3hf" secondAttribute="leading" id="KnJ-iA-fWr"/>
+                            <constraint firstItem="Afy-K9-TNy" firstAttribute="top" secondItem="2In-OJ-RVe" secondAttribute="bottom" constant="20" id="Kto-CL-snP"/>
+                            <constraint firstItem="2In-OJ-RVe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="S1u-R1-EDa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2In-OJ-RVe" secondAttribute="trailing" constant="8" id="V21-le-B0n"/>
+                            <constraint firstItem="pVp-Nq-vDv" firstAttribute="leading" secondItem="Ggt-NK-Gfx" secondAttribute="leading" id="VMJ-se-d1R"/>
+                            <constraint firstItem="Dm1-X7-2Tr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UHw-ue-an8" secondAttribute="bottom" constant="10" id="Wnz-aN-Rhi"/>
+                            <constraint firstItem="seh-m3-3hf" firstAttribute="top" secondItem="pVp-Nq-vDv" secondAttribute="bottom" constant="20" id="ZpV-GQ-FF5"/>
+                            <constraint firstItem="UHw-ue-an8" firstAttribute="top" secondItem="seh-m3-3hf" secondAttribute="bottom" constant="20" id="azm-OX-jsg"/>
+                            <constraint firstItem="Dm1-X7-2Tr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="fRz-zh-QEa"/>
+                            <constraint firstItem="Ggt-NK-Gfx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="m72-R8-krz"/>
+                            <constraint firstItem="seh-m3-3hf" firstAttribute="leading" secondItem="pVp-Nq-vDv" secondAttribute="leading" id="n6N-Oy-JzL"/>
+                            <constraint firstItem="5bP-Xf-SJL" firstAttribute="trailing" secondItem="Afy-K9-TNy" secondAttribute="trailing" id="ocW-OD-6zV"/>
+                            <constraint firstItem="5bP-Xf-SJL" firstAttribute="leading" secondItem="UHw-ue-an8" secondAttribute="leading" id="wQV-HW-KpN"/>
+                            <constraint firstItem="pVp-Nq-vDv" firstAttribute="top" secondItem="Ggt-NK-Gfx" secondAttribute="bottom" constant="20" id="yPu-LQ-Fd4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextfield" destination="w5d-IX-jE9" id="go1-bP-muL"/>
+                        <outlet property="resultImageView" destination="Dm1-X7-2Tr" id="LhQ-O5-nl4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

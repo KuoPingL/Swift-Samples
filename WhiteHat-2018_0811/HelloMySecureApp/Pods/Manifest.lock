@@ -1,0 +1,24 @@
+PODS:
+  - KeychainAccess (3.1.1)
+  - RNCryptor (5.0.3)
+  - TrustKit (1.5.3)
+
+DEPENDENCIES:
+  - KeychainAccess
+  - RNCryptor
+  - TrustKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KeychainAccess
+    - RNCryptor
+    - TrustKit
+
+SPEC CHECKSUMS:
+  KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
+  RNCryptor: c93d19029dcf7ff160aca0f24d6c9e7b0d82f664
+  TrustKit: b2bd5cb6a69cb17a95af87af327ecaa93c8da4bd
+
+PODFILE CHECKSUM: a201d2d48ab5cf832c3af7fec39c883284f5a6e1
+
+COCOAPODS: 1.5.3

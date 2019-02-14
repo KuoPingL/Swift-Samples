@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HelloWenSecureApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yXk-Z1-gf5">
+                                <rect key="frame" x="8" y="25" width="359" height="306.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9z-bJ-brI">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                        <state key="normal" title="API TEST"/>
+                                        <connections>
+                                            <action selector="API_TESTING_BTN_PRESSED:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g44-Y5-YYb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzX-Tg-rR4">
+                                        <rect key="frame" x="0.0" y="45" width="359" height="30"/>
+                                        <state key="normal" title="SSL PINNING TEST"/>
+                                        <connections>
+                                            <action selector="SSL_PINNING_BTN_PRESSED:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nhk-5r-CUN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwf-JE-SeH">
+                                        <rect key="frame" x="0.0" y="90" width="359" height="30"/>
+                                        <state key="normal" title="SAVE to KEYCHAIN"/>
+                                        <connections>
+                                            <action selector="SAVE_to_KEYCHAIN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nin-Gh-Mo7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7v-d6-jvr">
+                                        <rect key="frame" x="0.0" y="135" width="359" height="30"/>
+                                        <state key="normal" title="LOAD from KEYCHAIN"/>
+                                        <connections>
+                                            <action selector="LOAD_from_KEYCHAIN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1bV-J0-zmG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlo-Xg-zWQ">
+                                        <rect key="frame" x="0.0" y="180" width="359" height="30"/>
+                                        <state key="normal" title="ENCRYPT FILE"/>
+                                        <connections>
+                                            <action selector="ENCRYPT_FILE:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uJ6-eq-h3r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-jN-KNi">
+                                        <rect key="frame" x="0.0" y="225" width="359" height="30"/>
+                                        <state key="normal" title="DECRYPT FILE"/>
+                                        <connections>
+                                            <action selector="DECRYPT_FILE:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yva-gM-E0I"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gWA-GO-Y0Z">
+                                        <rect key="frame" x="0.0" y="270" width="359" height="36.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-5g-UPZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="36.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evg-wA-djG">
+                                                <rect key="frame" x="303" y="0.0" width="56" height="36.5"/>
+                                                <state key="normal" title="SUBMIT"/>
+                                                <connections>
+                                                    <action selector="SUBMIT_BTN_PRESSED:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LjU-G3-nkd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Evg-wA-djG" firstAttribute="width" secondItem="RO3-5g-UPZ" secondAttribute="height" multiplier="23:15" id="xkZ-gO-HBd"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gWA-GO-Y0Z" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="3Kz-sR-IxB"/>
+                                    <constraint firstItem="cwf-JE-SeH" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="3ep-sS-1oz"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZzX-Tg-rR4" secondAttribute="trailing" id="5KG-3x-kBE"/>
+                                    <constraint firstItem="ZzX-Tg-rR4" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="Dhp-Fh-ZXa"/>
+                                    <constraint firstAttribute="trailing" secondItem="gWA-GO-Y0Z" secondAttribute="trailing" id="Exc-hp-36x"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xlo-Xg-zWQ" secondAttribute="trailing" id="Ziu-lV-Ha9"/>
+                                    <constraint firstItem="E9z-bJ-brI" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="aiF-tT-oEd"/>
+                                    <constraint firstItem="s7v-d6-jvr" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="jXq-6J-4W2"/>
+                                    <constraint firstAttribute="trailing" secondItem="cwf-JE-SeH" secondAttribute="trailing" id="mud-Xb-XID"/>
+                                    <constraint firstAttribute="trailing" secondItem="8zg-jN-KNi" secondAttribute="trailing" id="p3L-AQ-2Ed"/>
+                                    <constraint firstItem="8zg-jN-KNi" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="uDh-Cb-yP0"/>
+                                    <constraint firstAttribute="trailing" secondItem="E9z-bJ-brI" secondAttribute="trailing" id="xN7-Jw-Z4A"/>
+                                    <constraint firstItem="Xlo-Xg-zWQ" firstAttribute="leading" secondItem="yXk-Z1-gf5" secondAttribute="leading" id="zGJ-Ch-mN3"/>
+                                    <constraint firstAttribute="trailing" secondItem="s7v-d6-jvr" secondAttribute="trailing" id="zW1-fo-wQ3"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N5V-4I-0hX">
+                                <rect key="frame" x="8" y="336.5" width="359" height="299"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N5V-4I-0hX" secondAttribute="height" multiplier="1.2" id="kfG-Z4-3Cs"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yXk-Z1-gf5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="Bri-pR-dFW"/>
+                            <constraint firstItem="yXk-Z1-gf5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UxH-R6-lpQ"/>
+                            <constraint firstItem="N5V-4I-0hX" firstAttribute="top" secondItem="yXk-Z1-gf5" secondAttribute="bottom" constant="5" id="aE3-ce-2Jn"/>
+                            <constraint firstItem="N5V-4I-0hX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fNC-Gu-Afp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="N5V-4I-0hX" secondAttribute="trailing" constant="8" id="ibZ-qH-4PE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yXk-Z1-gf5" secondAttribute="trailing" constant="8" id="oDH-cK-sQ2"/>
+                            <constraint firstItem="yXk-Z1-gf5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="pBi-OV-5ri"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="encryptedImageView" destination="N5V-4I-0hX" id="NQQ-gB-1mu"/>
+                        <outlet property="inputTextField" destination="RO3-5g-UPZ" id="NZt-Lh-Q3F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
