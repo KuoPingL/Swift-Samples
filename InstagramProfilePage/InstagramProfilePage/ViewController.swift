@@ -13,9 +13,11 @@ enum InstagramProfilePageStyles: String {
     dianChanStyle = "典昌 Style",
     dianChanCollectionView = "典昌 Style CollectionView",
     dianChanRoundedTableView = "典昌 Rounded TableView",
+    dianChanTapLabels = "典昌 Tap Labels",
+    dianChanVideoCollectionView = "典昌 Video CollectionView",
     simpleCollectionView = "Simple CollectionView Style"
     
-    static let list: [InstagramProfilePageStyles] = [dianChanStyle, dianChanCollectionView, dianChanRoundedTableView, simpleCollectionView]
+    static let list: [InstagramProfilePageStyles] = [dianChanStyle, dianChanCollectionView, dianChanRoundedTableView, dianChanTapLabels, dianChanVideoCollectionView, simpleCollectionView]
 }
 
 class ViewController: UITableViewController {
@@ -55,6 +57,12 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(vc, animated: true)
         case .dianChanRoundedTableView:
             let vc = RoundedTableViewController.init(style: .plain)
+            navigationController?.pushViewController(vc, animated: true)
+        case .dianChanTapLabels:
+            let vc = DianChanTapCopyViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case .dianChanVideoCollectionView:
+            let vc = DianChanVideosViewController(collectionViewLayout: UICollectionViewFlowLayout())
             navigationController?.pushViewController(vc, animated: true)
         case .simpleCollectionView:
             

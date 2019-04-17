@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BF28535B221325B900C5D401 /* RoundedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28535A221325B900C5D401 /* RoundedTableViewController.swift */; };
 		BF28535D22132BAB00C5D401 /* RoundedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28535C22132BAB00C5D401 /* RoundedCell.swift */; };
+		BF28536022166D4700C5D401 /* DianChanTapCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28535F22166D4700C5D401 /* DianChanTapCopyViewController.swift */; };
+		BF3EAAB122645D560084BA78 /* DianChanVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3EAAB022645D560084BA78 /* DianChanVideosViewController.swift */; };
 		BF7D1D5C21E763E9005CA768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D1D5B21E763E9005CA768 /* AppDelegate.swift */; };
 		BF7D1D5E21E763E9005CA768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D1D5D21E763E9005CA768 /* ViewController.swift */; };
 		BF7D1D6321E763ED005CA768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7D1D6221E763ED005CA768 /* Assets.xcassets */; };
@@ -23,11 +25,14 @@
 		BFB9EF3E21E88F7900B74D96 /* DianChanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */; };
 		BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */; };
 		BFB9EF4221E8C36400B74D96 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF4121E8C36400B74D96 /* BlankViewController.swift */; };
+		BFF437782265D192004348D8 /* VideoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF437772265D192004348D8 /* VideoImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF28535A221325B900C5D401 /* RoundedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTableViewController.swift; sourceTree = "<group>"; };
 		BF28535C22132BAB00C5D401 /* RoundedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCell.swift; sourceTree = "<group>"; };
+		BF28535F22166D4700C5D401 /* DianChanTapCopyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanTapCopyViewController.swift; sourceTree = "<group>"; };
+		BF3EAAB022645D560084BA78 /* DianChanVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanVideosViewController.swift; sourceTree = "<group>"; };
 		BF7D1D5821E763E9005CA768 /* InstagramProfilePage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramProfilePage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7D1D5B21E763E9005CA768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7D1D5D21E763E9005CA768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanCell.swift; sourceTree = "<group>"; };
 		BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanDummyCollectionViewController.swift; sourceTree = "<group>"; };
 		BFB9EF4121E8C36400B74D96 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
+		BFF437772265D192004348D8 /* VideoImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,14 @@
 			path = DianChanRoundedTableCell;
 			sourceTree = "<group>";
 		};
+		BF28535E22166D0700C5D401 /* DianChanTapCopy */ = {
+			isa = PBXGroup;
+			children = (
+				BF28535F22166D4700C5D401 /* DianChanTapCopyViewController.swift */,
+			);
+			path = DianChanTapCopy;
+			sourceTree = "<group>";
+		};
 		BF7D1D4F21E763E9005CA768 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +99,8 @@
 		BF7D1D5A21E763E9005CA768 /* InstagramProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				BFF437762265D143004348D8 /* DianChanVideoCell */,
+				BF28535E22166D0700C5D401 /* DianChanTapCopy */,
 				BF2853592213258900C5D401 /* DianChanRoundedTableCell */,
 				BF7D1D7021E765B6005CA768 /* CollectionViewStyle */,
 				BF7D1D6D21E76520005CA768 /* DianChanStyle */,
@@ -119,6 +135,15 @@
 				BFAD920921F89E7E002CEF0F /* GridLayout.swift */,
 			);
 			path = CollectionViewStyle;
+			sourceTree = "<group>";
+		};
+		BFF437762265D143004348D8 /* DianChanVideoCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF3EAAB022645D560084BA78 /* DianChanVideosViewController.swift */,
+				BFF437772265D192004348D8 /* VideoImageCell.swift */,
+			);
+			path = DianChanVideoCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +225,11 @@
 				BFB9EF4221E8C36400B74D96 /* BlankViewController.swift in Sources */,
 				BF28535B221325B900C5D401 /* RoundedTableViewController.swift in Sources */,
 				BFAD920421F859C9002CEF0F /* DianChanCollectionViewController.swift in Sources */,
+				BF28536022166D4700C5D401 /* DianChanTapCopyViewController.swift in Sources */,
+				BFF437782265D192004348D8 /* VideoImageCell.swift in Sources */,
 				BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */,
 				BFAD920621F85D1E002CEF0F /* DianChanCollectionViewLayout.swift in Sources */,
+				BF3EAAB122645D560084BA78 /* DianChanVideosViewController.swift in Sources */,
 				BF7D1D5E21E763E9005CA768 /* ViewController.swift in Sources */,
 				BF7D1D5C21E763E9005CA768 /* AppDelegate.swift in Sources */,
 				BF7D1D6F21E7653B005CA768 /* DianChanViewController.swift in Sources */,
