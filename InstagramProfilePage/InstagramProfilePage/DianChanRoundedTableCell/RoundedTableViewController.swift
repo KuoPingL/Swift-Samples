@@ -77,6 +77,10 @@ class RoundedTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
     // 只弄上方的圓角
     private func applyTopCornersOn(_ cell: UITableViewCell) {
         normalizeCornerOn(cell)

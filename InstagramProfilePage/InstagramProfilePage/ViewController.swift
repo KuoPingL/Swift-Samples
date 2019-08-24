@@ -11,11 +11,15 @@ import UIKit
 enum InstagramProfilePageStyles: String {
     case
     dianChanStyle = "典昌 Style",
+    dianChanSimplifiedStyle = "典昌 Simplified Style",
     dianChanCollectionView = "典昌 Style CollectionView",
     dianChanRoundedTableView = "典昌 Rounded TableView",
+    dianChanTapLabels = "典昌 Tap Labels",
+    dianChanVideoCollectionView = "典昌 Video CollectionView",
+    dianChanCollectionViewInScrollView = "典昌 CollectionView in ScrollView",
     simpleCollectionView = "Simple CollectionView Style"
     
-    static let list: [InstagramProfilePageStyles] = [dianChanStyle, dianChanCollectionView, dianChanRoundedTableView, simpleCollectionView]
+    static let list: [InstagramProfilePageStyles] = [dianChanStyle, dianChanSimplifiedStyle, dianChanCollectionView, dianChanRoundedTableView, dianChanTapLabels, dianChanVideoCollectionView,dianChanCollectionViewInScrollView,simpleCollectionView]
 }
 
 class ViewController: UITableViewController {
@@ -50,11 +54,24 @@ class ViewController: UITableViewController {
 //            self.present(vc, animated: true, completion: nil)
             navigationController?.pushViewController(vc, animated: true)
             break;
+        case .dianChanSimplifiedStyle:
+            let vc = DianChanSimplifiedViewController()
+            navigationController?.pushViewController(vc, animated: true)
+            break;
         case .dianChanCollectionView:
             let vc = DianChanCollectionViewController.init(collectionViewLayout: .init())
             navigationController?.pushViewController(vc, animated: true)
         case .dianChanRoundedTableView:
             let vc = RoundedTableViewController.init(style: .plain)
+            navigationController?.pushViewController(vc, animated: true)
+        case .dianChanTapLabels:
+            let vc = DianChanTapCopyViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case .dianChanVideoCollectionView:
+            let vc = DianChanVideosViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            navigationController?.pushViewController(vc, animated: true)
+        case .dianChanCollectionViewInScrollView:
+            let vc = CollectionViewInScrollViewController()
             navigationController?.pushViewController(vc, animated: true)
         case .simpleCollectionView:
             

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BF28535B221325B900C5D401 /* RoundedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28535A221325B900C5D401 /* RoundedTableViewController.swift */; };
 		BF28535D22132BAB00C5D401 /* RoundedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28535C22132BAB00C5D401 /* RoundedCell.swift */; };
+		BF28536022166D4700C5D401 /* DianChanTapCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28535F22166D4700C5D401 /* DianChanTapCopyViewController.swift */; };
+		BF3EAAB122645D560084BA78 /* DianChanVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3EAAB022645D560084BA78 /* DianChanVideosViewController.swift */; };
 		BF7D1D5C21E763E9005CA768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D1D5B21E763E9005CA768 /* AppDelegate.swift */; };
 		BF7D1D5E21E763E9005CA768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D1D5D21E763E9005CA768 /* ViewController.swift */; };
 		BF7D1D6321E763ED005CA768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7D1D6221E763ED005CA768 /* Assets.xcassets */; };
@@ -23,11 +25,21 @@
 		BFB9EF3E21E88F7900B74D96 /* DianChanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */; };
 		BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */; };
 		BFB9EF4221E8C36400B74D96 /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB9EF4121E8C36400B74D96 /* BlankViewController.swift */; };
+		BFE1308D226DB9E500BCDE89 /* CollectionViewInScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1308C226DB9E500BCDE89 /* CollectionViewInScrollViewController.swift */; };
+		BFE13090227031C200BCDE89 /* DianChanImprovedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1308F227031C200BCDE89 /* DianChanImprovedViewController.swift */; };
+		BFE13092227035A200BCDE89 /* DianChanImprovedCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE13091227035A200BCDE89 /* DianChanImprovedCollectionsController.swift */; };
+		BFE13094227037DE00BCDE89 /* DianChanImprovedDummyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE13093227037DE00BCDE89 /* DianChanImprovedDummyCollectionViewController.swift */; };
+		BFE130972270420200BCDE89 /* DianChanSimplifiedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE130962270420200BCDE89 /* DianChanSimplifiedViewController.swift */; };
+		BFE130992270428000BCDE89 /* DianChanSimplifiedCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE130982270428000BCDE89 /* DianChanSimplifiedCollectionsController.swift */; };
+		BFE1309B227042E900BCDE89 /* DianChanSimplifiedDummyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE1309A227042E900BCDE89 /* DianChanSimplifiedDummyCollectionViewController.swift */; };
+		BFF437782265D192004348D8 /* VideoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF437772265D192004348D8 /* VideoImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF28535A221325B900C5D401 /* RoundedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTableViewController.swift; sourceTree = "<group>"; };
 		BF28535C22132BAB00C5D401 /* RoundedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCell.swift; sourceTree = "<group>"; };
+		BF28535F22166D4700C5D401 /* DianChanTapCopyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanTapCopyViewController.swift; sourceTree = "<group>"; };
+		BF3EAAB022645D560084BA78 /* DianChanVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanVideosViewController.swift; sourceTree = "<group>"; };
 		BF7D1D5821E763E9005CA768 /* InstagramProfilePage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramProfilePage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7D1D5B21E763E9005CA768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7D1D5D21E763E9005CA768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +56,14 @@
 		BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanCell.swift; sourceTree = "<group>"; };
 		BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanDummyCollectionViewController.swift; sourceTree = "<group>"; };
 		BFB9EF4121E8C36400B74D96 /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; };
+		BFE1308C226DB9E500BCDE89 /* CollectionViewInScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewInScrollViewController.swift; sourceTree = "<group>"; };
+		BFE1308F227031C200BCDE89 /* DianChanImprovedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanImprovedViewController.swift; sourceTree = "<group>"; };
+		BFE13091227035A200BCDE89 /* DianChanImprovedCollectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanImprovedCollectionsController.swift; sourceTree = "<group>"; };
+		BFE13093227037DE00BCDE89 /* DianChanImprovedDummyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanImprovedDummyCollectionViewController.swift; sourceTree = "<group>"; };
+		BFE130962270420200BCDE89 /* DianChanSimplifiedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanSimplifiedViewController.swift; sourceTree = "<group>"; };
+		BFE130982270428000BCDE89 /* DianChanSimplifiedCollectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanSimplifiedCollectionsController.swift; sourceTree = "<group>"; };
+		BFE1309A227042E900BCDE89 /* DianChanSimplifiedDummyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DianChanSimplifiedDummyCollectionViewController.swift; sourceTree = "<group>"; };
+		BFF437772265D192004348D8 /* VideoImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +86,14 @@
 			path = DianChanRoundedTableCell;
 			sourceTree = "<group>";
 		};
+		BF28535E22166D0700C5D401 /* DianChanTapCopy */ = {
+			isa = PBXGroup;
+			children = (
+				BF28535F22166D4700C5D401 /* DianChanTapCopyViewController.swift */,
+			);
+			path = DianChanTapCopy;
+			sourceTree = "<group>";
+		};
 		BF7D1D4F21E763E9005CA768 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +113,10 @@
 		BF7D1D5A21E763E9005CA768 /* InstagramProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+				BFE13095227041D900BCDE89 /* Dian */,
+				BFE1308B226DB9C600BCDE89 /* DianChanCollectionViewInScrollView */,
+				BFF437762265D143004348D8 /* DianChanVideoCell */,
+				BF28535E22166D0700C5D401 /* DianChanTapCopy */,
 				BF2853592213258900C5D401 /* DianChanRoundedTableCell */,
 				BF7D1D7021E765B6005CA768 /* CollectionViewStyle */,
 				BF7D1D6D21E76520005CA768 /* DianChanStyle */,
@@ -106,6 +138,12 @@
 				BFB9EF3D21E88F7900B74D96 /* DianChanCell.swift */,
 				BFB9EF3F21E89C9400B74D96 /* DianChanDummyCollectionViewController.swift */,
 				BFB9EF4121E8C36400B74D96 /* BlankViewController.swift */,
+				BFE1308F227031C200BCDE89 /* DianChanImprovedViewController.swift */,
+				BFE13091227035A200BCDE89 /* DianChanImprovedCollectionsController.swift */,
+				BFE13093227037DE00BCDE89 /* DianChanImprovedDummyCollectionViewController.swift */,
+				BFE130962270420200BCDE89 /* DianChanSimplifiedViewController.swift */,
+				BFE130982270428000BCDE89 /* DianChanSimplifiedCollectionsController.swift */,
+				BFE1309A227042E900BCDE89 /* DianChanSimplifiedDummyCollectionViewController.swift */,
 			);
 			path = DianChanStyle;
 			sourceTree = "<group>";
@@ -119,6 +157,30 @@
 				BFAD920921F89E7E002CEF0F /* GridLayout.swift */,
 			);
 			path = CollectionViewStyle;
+			sourceTree = "<group>";
+		};
+		BFE1308B226DB9C600BCDE89 /* DianChanCollectionViewInScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				BFE1308C226DB9E500BCDE89 /* CollectionViewInScrollViewController.swift */,
+			);
+			path = DianChanCollectionViewInScrollView;
+			sourceTree = "<group>";
+		};
+		BFE13095227041D900BCDE89 /* Dian */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dian;
+			sourceTree = "<group>";
+		};
+		BFF437762265D143004348D8 /* DianChanVideoCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF3EAAB022645D560084BA78 /* DianChanVideosViewController.swift */,
+				BFF437772265D192004348D8 /* VideoImageCell.swift */,
+			);
+			path = DianChanVideoCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,19 +254,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFB9EF3C21E87F1900B74D96 /* DianChanCollectionsController.swift in Sources */,
+				BFE13090227031C200BCDE89 /* DianChanImprovedViewController.swift in Sources */,
 				BF28535D22132BAB00C5D401 /* RoundedCell.swift in Sources */,
 				BFB9EF3E21E88F7900B74D96 /* DianChanCell.swift in Sources */,
 				BFAD920821F86F6B002CEF0F /* EqualSeparateCollectionLayout.swift in Sources */,
 				BFAD920A21F89E7E002CEF0F /* GridLayout.swift in Sources */,
 				BF7D1D7221E766F0005CA768 /* DianChanUserProfileController.swift in Sources */,
 				BFB9EF4221E8C36400B74D96 /* BlankViewController.swift in Sources */,
+				BFE130972270420200BCDE89 /* DianChanSimplifiedViewController.swift in Sources */,
 				BF28535B221325B900C5D401 /* RoundedTableViewController.swift in Sources */,
 				BFAD920421F859C9002CEF0F /* DianChanCollectionViewController.swift in Sources */,
+				BFE1309B227042E900BCDE89 /* DianChanSimplifiedDummyCollectionViewController.swift in Sources */,
+				BF28536022166D4700C5D401 /* DianChanTapCopyViewController.swift in Sources */,
+				BFF437782265D192004348D8 /* VideoImageCell.swift in Sources */,
 				BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */,
+				BFE13092227035A200BCDE89 /* DianChanImprovedCollectionsController.swift in Sources */,
 				BFAD920621F85D1E002CEF0F /* DianChanCollectionViewLayout.swift in Sources */,
+				BF3EAAB122645D560084BA78 /* DianChanVideosViewController.swift in Sources */,
+				BFE13094227037DE00BCDE89 /* DianChanImprovedDummyCollectionViewController.swift in Sources */,
 				BF7D1D5E21E763E9005CA768 /* ViewController.swift in Sources */,
+				BFE1308D226DB9E500BCDE89 /* CollectionViewInScrollViewController.swift in Sources */,
 				BF7D1D5C21E763E9005CA768 /* AppDelegate.swift in Sources */,
 				BF7D1D6F21E7653B005CA768 /* DianChanViewController.swift in Sources */,
+				BFE130992270428000BCDE89 /* DianChanSimplifiedCollectionsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
