@@ -113,8 +113,10 @@
 		BF7D1D5A21E763E9005CA768 /* InstagramProfilePage */ = {
 			isa = PBXGroup;
 			children = (
+            
 				BFE13095227041D900BCDE89 /* Dian */,
 				BFE1308B226DB9C600BCDE89 /* DianChanCollectionViewInScrollView */,
+                
 				BFF437762265D143004348D8 /* DianChanVideoCell */,
 				BF28535E22166D0700C5D401 /* DianChanTapCopy */,
 				BF2853592213258900C5D401 /* DianChanRoundedTableCell */,
@@ -159,6 +161,7 @@
 			path = CollectionViewStyle;
 			sourceTree = "<group>";
 		};
+        
 		BFE1308B226DB9C600BCDE89 /* DianChanCollectionViewInScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +268,7 @@
 				BF28535B221325B900C5D401 /* RoundedTableViewController.swift in Sources */,
 				BFAD920421F859C9002CEF0F /* DianChanCollectionViewController.swift in Sources */,
 				BFE1309B227042E900BCDE89 /* DianChanSimplifiedDummyCollectionViewController.swift in Sources */,
+
 				BF28536022166D4700C5D401 /* DianChanTapCopyViewController.swift in Sources */,
 				BFF437782265D192004348D8 /* VideoImageCell.swift in Sources */,
 				BFB9EF4021E89C9400B74D96 /* DianChanDummyCollectionViewController.swift in Sources */,
@@ -272,6 +276,7 @@
 				BFAD920621F85D1E002CEF0F /* DianChanCollectionViewLayout.swift in Sources */,
 				BF3EAAB122645D560084BA78 /* DianChanVideosViewController.swift in Sources */,
 				BFE13094227037DE00BCDE89 /* DianChanImprovedDummyCollectionViewController.swift in Sources */,
+                
 				BF7D1D5E21E763E9005CA768 /* ViewController.swift in Sources */,
 				BFE1308D226DB9E500BCDE89 /* CollectionViewInScrollViewController.swift in Sources */,
 				BF7D1D5C21E763E9005CA768 /* AppDelegate.swift in Sources */,
