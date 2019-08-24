@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF280DCD23110307005FC4FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280DCC23110307005FC4FE /* AppDelegate.swift */; };
+		BF280DCF23110307005FC4FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280DCE23110307005FC4FE /* ViewController.swift */; };
+		BF280DD223110308005FC4FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF280DD023110308005FC4FE /* Main.storyboard */; };
+		BF280DD42311030E005FC4FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF280DD32311030E005FC4FE /* Assets.xcassets */; };
+		BF280DD72311030E005FC4FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF280DD52311030E005FC4FE /* LaunchScreen.storyboard */; };
+		BF280DE22311030E005FC4FE /* DialogInputViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280DE12311030E005FC4FE /* DialogInputViewDemoTests.swift */; };
+		BF280DED2311030E005FC4FE /* DialogInputViewDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280DEC2311030E005FC4FE /* DialogInputViewDemoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF280DDE2311030E005FC4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF280DC123110307005FC4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF280DC823110307005FC4FE;
+			remoteInfo = DialogInputViewDemo;
+		};
+		BF280DE92311030E005FC4FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF280DC123110307005FC4FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF280DC823110307005FC4FE;
+			remoteInfo = DialogInputViewDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF280DC923110307005FC4FE /* DialogInputViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DialogInputViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF280DCC23110307005FC4FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF280DCE23110307005FC4FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF280DD123110308005FC4FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF280DD32311030E005FC4FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF280DD62311030E005FC4FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF280DD82311030E005FC4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF280DDD2311030E005FC4FE /* DialogInputViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DialogInputViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF280DE12311030E005FC4FE /* DialogInputViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogInputViewDemoTests.swift; sourceTree = "<group>"; };
+		BF280DE32311030E005FC4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF280DE82311030E005FC4FE /* DialogInputViewDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DialogInputViewDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF280DEC2311030E005FC4FE /* DialogInputViewDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogInputViewDemoUITests.swift; sourceTree = "<group>"; };
+		BF280DEE2311030E005FC4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF280DC623110307005FC4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF280DDA2311030E005FC4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF280DE52311030E005FC4FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF280DC023110307005FC4FE = {
+			isa = PBXGroup;
+			children = (
+				BF280DCB23110307005FC4FE /* DialogInputViewDemo */,
+				BF280DE02311030E005FC4FE /* DialogInputViewDemoTests */,
+				BF280DEB2311030E005FC4FE /* DialogInputViewDemoUITests */,
+				BF280DCA23110307005FC4FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF280DCA23110307005FC4FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF280DC923110307005FC4FE /* DialogInputViewDemo.app */,
+				BF280DDD2311030E005FC4FE /* DialogInputViewDemoTests.xctest */,
+				BF280DE82311030E005FC4FE /* DialogInputViewDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF280DCB23110307005FC4FE /* DialogInputViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BF280DCC23110307005FC4FE /* AppDelegate.swift */,
+				BF280DCE23110307005FC4FE /* ViewController.swift */,
+				BF280DD023110308005FC4FE /* Main.storyboard */,
+				BF280DD32311030E005FC4FE /* Assets.xcassets */,
+				BF280DD52311030E005FC4FE /* LaunchScreen.storyboard */,
+				BF280DD82311030E005FC4FE /* Info.plist */,
+			);
+			path = DialogInputViewDemo;
+			sourceTree = "<group>";
+		};
+		BF280DE02311030E005FC4FE /* DialogInputViewDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF280DE12311030E005FC4FE /* DialogInputViewDemoTests.swift */,
+				BF280DE32311030E005FC4FE /* Info.plist */,
+			);
+			path = DialogInputViewDemoTests;
+			sourceTree = "<group>";
+		};
+		BF280DEB2311030E005FC4FE /* DialogInputViewDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF280DEC2311030E005FC4FE /* DialogInputViewDemoUITests.swift */,
+				BF280DEE2311030E005FC4FE /* Info.plist */,
+			);
+			path = DialogInputViewDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF280DC823110307005FC4FE /* DialogInputViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF280DF12311030E005FC4FE /* Build configuration list for PBXNativeTarget "DialogInputViewDemo" */;
+			buildPhases = (
+				BF280DC523110307005FC4FE /* Sources */,
+				BF280DC623110307005FC4FE /* Frameworks */,
+				BF280DC723110307005FC4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DialogInputViewDemo;
+			productName = DialogInputViewDemo;
+			productReference = BF280DC923110307005FC4FE /* DialogInputViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF280DDC2311030E005FC4FE /* DialogInputViewDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF280DF42311030E005FC4FE /* Build configuration list for PBXNativeTarget "DialogInputViewDemoTests" */;
+			buildPhases = (
+				BF280DD92311030E005FC4FE /* Sources */,
+				BF280DDA2311030E005FC4FE /* Frameworks */,
+				BF280DDB2311030E005FC4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF280DDF2311030E005FC4FE /* PBXTargetDependency */,
+			);
+			name = DialogInputViewDemoTests;
+			productName = DialogInputViewDemoTests;
+			productReference = BF280DDD2311030E005FC4FE /* DialogInputViewDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF280DE72311030E005FC4FE /* DialogInputViewDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF280DF72311030E005FC4FE /* Build configuration list for PBXNativeTarget "DialogInputViewDemoUITests" */;
+			buildPhases = (
+				BF280DE42311030E005FC4FE /* Sources */,
+				BF280DE52311030E005FC4FE /* Frameworks */,
+				BF280DE62311030E005FC4FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF280DEA2311030E005FC4FE /* PBXTargetDependency */,
+			);
+			name = DialogInputViewDemoUITests;
+			productName = DialogInputViewDemoUITests;
+			productReference = BF280DE82311030E005FC4FE /* DialogInputViewDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF280DC123110307005FC4FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Jimmy;
+				TargetAttributes = {
+					BF280DC823110307005FC4FE = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					BF280DDC2311030E005FC4FE = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BF280DC823110307005FC4FE;
+					};
+					BF280DE72311030E005FC4FE = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BF280DC823110307005FC4FE;
+					};
+				};
+			};
+			buildConfigurationList = BF280DC423110307005FC4FE /* Build configuration list for PBXProject "DialogInputViewDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF280DC023110307005FC4FE;
+			productRefGroup = BF280DCA23110307005FC4FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF280DC823110307005FC4FE /* DialogInputViewDemo */,
+				BF280DDC2311030E005FC4FE /* DialogInputViewDemoTests */,
+				BF280DE72311030E005FC4FE /* DialogInputViewDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF280DC723110307005FC4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF280DD72311030E005FC4FE /* LaunchScreen.storyboard in Resources */,
+				BF280DD42311030E005FC4FE /* Assets.xcassets in Resources */,
+				BF280DD223110308005FC4FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF280DDB2311030E005FC4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF280DE62311030E005FC4FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF280DC523110307005FC4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF280DCF23110307005FC4FE /* ViewController.swift in Sources */,
+				BF280DCD23110307005FC4FE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF280DD92311030E005FC4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF280DE22311030E005FC4FE /* DialogInputViewDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF280DE42311030E005FC4FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF280DED2311030E005FC4FE /* DialogInputViewDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF280DDF2311030E005FC4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF280DC823110307005FC4FE /* DialogInputViewDemo */;
+			targetProxy = BF280DDE2311030E005FC4FE /* PBXContainerItemProxy */;
+		};
+		BF280DEA2311030E005FC4FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF280DC823110307005FC4FE /* DialogInputViewDemo */;
+			targetProxy = BF280DE92311030E005FC4FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF280DD023110308005FC4FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF280DD123110308005FC4FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF280DD52311030E005FC4FE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF280DD62311030E005FC4FE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF280DEF2311030E005FC4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF280DF02311030E005FC4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF280DF22311030E005FC4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = DialogInputViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.DialogInputViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF280DF32311030E005FC4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = DialogInputViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.DialogInputViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF280DF52311030E005FC4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = DialogInputViewDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.DialogInputViewDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DialogInputViewDemo.app/DialogInputViewDemo";
+			};
+			name = Debug;
+		};
+		BF280DF62311030E005FC4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = DialogInputViewDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.DialogInputViewDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DialogInputViewDemo.app/DialogInputViewDemo";
+			};
+			name = Release;
+		};
+		BF280DF82311030E005FC4FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = DialogInputViewDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.DialogInputViewDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DialogInputViewDemo;
+			};
+			name = Debug;
+		};
+		BF280DF92311030E005FC4FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = DialogInputViewDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.DialogInputViewDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DialogInputViewDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF280DC423110307005FC4FE /* Build configuration list for PBXProject "DialogInputViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF280DEF2311030E005FC4FE /* Debug */,
+				BF280DF02311030E005FC4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF280DF12311030E005FC4FE /* Build configuration list for PBXNativeTarget "DialogInputViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF280DF22311030E005FC4FE /* Debug */,
+				BF280DF32311030E005FC4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF280DF42311030E005FC4FE /* Build configuration list for PBXNativeTarget "DialogInputViewDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF280DF52311030E005FC4FE /* Debug */,
+				BF280DF62311030E005FC4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF280DF72311030E005FC4FE /* Build configuration list for PBXNativeTarget "DialogInputViewDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF280DF82311030E005FC4FE /* Debug */,
+				BF280DF92311030E005FC4FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF280DC123110307005FC4FE /* Project object */;
+}
