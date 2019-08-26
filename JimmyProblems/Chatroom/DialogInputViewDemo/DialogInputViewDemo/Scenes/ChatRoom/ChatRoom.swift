@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+class ChatRoom: UIViewController {
+    
+    lazy var tableView: UITableView = {
+        let tv = UITableView()
+        
+        return tv
+    }()
+    
+    lazy var users: [UserModel] = {
+        return UserModel.sample()
+    }()
+}
