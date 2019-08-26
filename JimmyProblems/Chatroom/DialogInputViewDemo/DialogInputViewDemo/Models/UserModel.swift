@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+struct UserModel {
+    var name: String
+    var id: String
+    var avatar: UIImage?
+    
+    static func sample() -> [UserModel] {
+        return
+            [UserModel(name: "John", id: "12345", avatar: nil),
+             UserModel(name: "Mary", id: "23456", avatar: nil)]
+    }
+}

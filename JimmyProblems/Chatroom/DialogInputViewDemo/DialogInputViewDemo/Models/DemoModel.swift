@@ -7,3 +7,74 @@
 //
 
 import Foundation
+
+enum Demo {
+    case simple(SimpleDemos)
+    
+    static var demos: [[String]] {
+        get {
+            var demo = [[String]]()
+            demo.append(SimpleDemos.demos)
+            return demo
+        }
+    }
+    
+    static var demoTitles: [String] {
+        get {
+            return [SimpleDemos.title]
+        }
+    }
+    
+    static func demosWithDescription(_ description: String, simpleDemoClosure:(SimpleDemos) -> Void) {
+        if let demo = SimpleDemos.demoWithDescription(description) {
+            simpleDemoClosure(demo)
+        }
+    }
+}
+
+protocol DemoDelegate {
+    var description: String {get}
+    static var demos: [String] {get}
+    static var title: String {get}
+}
+
+enum SimpleDemos: String, DemoDelegate {
+    case useTextViewAsInputView = "Place textView as the inputView of view controller"
+    case addTextViewAsSubView = "Add input view as subview onto view controller"
+    case useTextFieldAsInputView = "Place textField as the inputView of view controller"
+    
+    var description: String {
+        get {
+            return self.rawValue.localized
+        }
+    }
+    
+    static var demos: [String] {
+        get {
+            return
+                [
+                    SimpleDemos.useTextViewAsInputView.description,
+                    SimpleDemos.addTextViewAsSubView.description,
+                    SimpleDemos.useTextFieldAsInputView.description
+            ]
+        }
+    }
+    
+    static var title: String {
+        get {
+            return "Simple Demos".localized
+        }
+    }
+    
+    static func demoWithDescription(_ description: String) -> SimpleDemos? {
+        if description == SimpleDemos.useTextViewAsInputView.description {
+            return .useTextViewAsInputView
+        } else if description == SimpleDemos.useTextFieldAsInputView.description {
+            return .useTextFieldAsInputView
+        } else if description == SimpleDemos.addTextViewAsSubView.description {
+            return .addTextViewAsSubView
+        }
+        
+        return nil
+    }
+}
