@@ -7,3 +7,10 @@
 //
 
 import Foundation
+extension String {
+    var localized: String {
+        get {
+            return NSLocalizedString(self, tableName: nil, bundle: .main, value: "", comment: "")
+        }
+    }
+}
