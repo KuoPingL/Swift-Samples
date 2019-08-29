@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 
-class ChatRoom: UIViewController {
+enum ChatRoomFactory {
     
+}
+
+class ChatRoom: UIViewController {
     lazy var tableView: UITableView = {
         let tv = UITableView()
         

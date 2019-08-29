@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 class SimpleChatRoomLogDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
-    
+//    var 
 }
