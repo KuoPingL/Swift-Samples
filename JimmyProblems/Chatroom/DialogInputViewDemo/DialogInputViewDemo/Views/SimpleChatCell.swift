@@ -32,18 +32,18 @@ class SimpleChatCell: UITableViewCell {
             
             textLabelConstraint?.isActive = false
             if isSender {
-                textLabelConstraint = textLabel?.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20)
-                
+                textLabelConstraint = containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20)
+
                 DispatchQueue.main.async {
                     self.textLabel?.textColor = .black
-                    self.textLabel?.backgroundColor = UIColor.orange
+                    self.containerView.backgroundColor = UIColor.orange
                 }
-                
+
             } else {
-                textLabelConstraint = textLabel?.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
+                textLabelConstraint = containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
                 DispatchQueue.main.async {
                     self.textLabel?.textColor = .white
-                    self.textLabel?.backgroundColor = UIColor.black
+                    self.containerView.backgroundColor = UIColor.black
                 }
             }
             textLabelConstraint?.isActive = true
@@ -51,7 +51,7 @@ class SimpleChatCell: UITableViewCell {
     }
     
     private lazy var customizedLabel: UILabel = {
-        return InsetUILabel()
+        return UILabel()
     }()
     
     override var textLabel: UILabel? {
@@ -72,18 +72,39 @@ class SimpleChatCell: UITableViewCell {
         setupUI()
     }
     
+    private var containerView: UIView = UIView()
+    
     private func setupUI() {
-        contentView.addSubview(textLabel!)
+        contentView.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView
+            .top.equalTo(contentView.top, constant: 10)
+            .bottom.equalTo(contentView.bottom, constant: -10)
+            .centerY.equalTo(contentView.centerY)
+        if let font = textLabel?.font {
+            containerView.layer.cornerRadius = (font.lineHeight + 20) / 2
+            containerView.layer.masksToBounds = true
+        }
+        
+        containerView.addSubview(textLabel!)
         textLabel?.translatesAutoresizingMaskIntoConstraints = false
-        textLabel?.layer.cornerRadius = 15.0
-        textLabel?.layer.masksToBounds = true
+        textLabel?.backgroundColor = .clear
+        containerView
+            .height.equalTo(textLabel?.height, constant: 20)
+            .width.equalTo(textLabel?.width, constant: 20)
+        
         textLabel?
-            .top.equalTo(contentView.top_safeAreaLayoutGuid,
-                         constant: 10)
-            .bottom.equalTo(contentView.bottom_safeAreaLayoutGuide,
-                            constant: -10)
-            .width.lessThanOrEqualTo(nil,
-                                     constant: contentView.bounds.width * 3.0 / 4.0)
+            .centerY.equalTo(containerView.centerY)
+            .centerX.equalTo(containerView.centerX)
+            .width.lessThanOrEqualTo(nil, constant: contentView.bounds.width * 3.0 / 4.0)
+        
+        
+        
+//        textLabel?
+////            .top.equalTo(containerView.top, constant: 10)
+////            .bottom.equalTo(containerView.bottom, constant: -10)
+//            .width.lessThanOrEqualTo(nil,
+//                                     constant: contentView.bounds.width * 3.0 / 4.0)
     }
     
 }
