@@ -22,17 +22,20 @@ class SimpleChatRoomLogDelegate: NSObject, UITableViewDelegate, UITableViewDataS
         tableView.dataSource = self
         
         tableView.register(SimpleChatCell.self, forCellReuseIdentifier: SimpleChatCell.cellID)
-        tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
         
         self.delegate = delegate
     }
     
     public func appendMessage(_ message: SimpleChatModel) {
+        
+        tableView?.beginUpdates()
         messages.append(message)
-        tableView?.reloadData()
-        tableView?.layoutIfNeeded()
-        tableView?.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+        tableView?.insertRows(at: [IndexPath(row: messages.count - 1, section: 0)], with: message.isSender ? .right : .left)
+        tableView?.endUpdates()
+        
+        DispatchQueue.main.async {
+            self.tableView?.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .bottom, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,5 +52,4 @@ class SimpleChatRoomLogDelegate: NSObject, UITableViewDelegate, UITableViewDataS
         
         return cell!
     }
-    
 }

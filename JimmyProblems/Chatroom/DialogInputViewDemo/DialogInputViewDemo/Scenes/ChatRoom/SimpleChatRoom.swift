@@ -9,18 +9,89 @@
 import Foundation
 import UIKit
 
-enum ChatRoomFactory {
+class SimpleChatRoom: UIViewController {
+    //MARK: - Public VAR
     
-}
-
-class ChatRoom: UIViewController {
-    lazy var tableView: UITableView = {
+    public var delegate: SimpleChatRoomLogDelegate!
+    
+    public lazy var tableView: UITableView = {
         let tv = UITableView()
-        
+        tv.allowsSelection = false
+        tv.keyboardDismissMode = .interactive
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.tableFooterView = UIView()
+        tv.separatorStyle = .none
         return tv
     }()
     
-    lazy var users: [UserModel] = {
-        return UserModel.sample()
-    }()
+    public var users: [UserModel] = UserModel.sample()
+    
+    // Use to determine if user is currently the sender or receiver
+    public var isSender = true
+    
+    
+    // Record keyboard frame
+    public var keyboardFrame: CGRect = .zero
+    
+    //MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = SimpleChatRoomLogDelegate(tableView: self.tableView, delegate: self)
+        tableView.panGestureRecognizer.addTarget(self, action: #selector(tableViewPanGestureDetected(_:)))
+        
+        prepareUI()
+    }
+    
+    @objc public func tableViewPanGestureDetected(_ panGesture: UIPanGestureRecognizer) {
+        
+    }
+    
+    
+    public var customizedInputViewObserver: NSKeyValueObservation?
+    
+    public func prepareUI() {
+        view.backgroundColor = .white
+        view.addSubview(tableView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addKeyboardListener()
+    }
+    
+    private func addKeyboardListener() {
+        self.addObserveKeyboardWillShow(with: #selector(keyboardListener(_:)), object: nil)
+        self.addObserveKeyboardWillHide(with: #selector(keyboardListener(_:)), object: nil)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeKeyboardListener()
+        customizedInputViewObserver?.invalidate()
+    }
+    
+    private func removeKeyboardListener() {
+        self.removeObserveKeyboardWillHide(object: nil)
+        self.removeObserveKeyboardWillShow(object: nil)
+    }
+    
+    @objc public func keyboardListener(_ notification: Notification) {
+    }
+    
+    private func simpleTextFieldInputViewReceived(_ notification: Notification) {
+        guard let userInfo = notification.userInfo as NSDictionary? else {
+            return
+        }
+        
+        guard let keyboardEndFrame = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else {
+            return
+        }
+        
+        keyboardFrame = keyboardEndFrame.cgRectValue
+        if notification.name == UIResponder.keyboardWillShowNotification {
+            
+        } else if notification.name == UIResponder.keyboardWillHideNotification {
+            
+        }
+    }
 }
