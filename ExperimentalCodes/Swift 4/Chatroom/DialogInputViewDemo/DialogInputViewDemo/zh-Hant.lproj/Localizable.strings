@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  DialogInputViewDemo
+
+  Created by Jimmy on 2019/9/5.
+  Copyright © 2019 Jimmy. All rights reserved.
+*/
+
+"_sent" = "送出";
+"_placeholder" = "請輸入";
