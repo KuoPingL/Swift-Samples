@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF5C679A22D0A17D00C61904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C679922D0A17D00C61904 /* AppDelegate.swift */; };
+		BF5C679F22D0A17D00C61904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5C679D22D0A17D00C61904 /* Main.storyboard */; };
+		BF5C67A222D0A17D00C61904 /* BLETutorial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF5C67A022D0A17D00C61904 /* BLETutorial.xcdatamodeld */; };
+		BF5C67A422D0A18200C61904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF5C67A322D0A18200C61904 /* Assets.xcassets */; };
+		BF5C67A722D0A18200C61904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF5C67A522D0A18200C61904 /* LaunchScreen.storyboard */; };
+		BF5C67B222D0A18300C61904 /* BLETutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C67B122D0A18300C61904 /* BLETutorialTests.swift */; };
+		BF5C67BD22D0A18300C61904 /* BLETutorialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C67BC22D0A18300C61904 /* BLETutorialUITests.swift */; };
+		BF5C67CC22D0AA0600C61904 /* BLEListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C67CB22D0AA0600C61904 /* BLEListViewController.swift */; };
+		BF5C67CF22D1B15600C61904 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5C67CE22D1B15600C61904 /* BLEManager.swift */; };
+		BF5C67D222D1B1A000C61904 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5C67D122D1B19F00C61904 /* CoreBluetooth.framework */; };
+		BF64D5D122DE29DD0073BB5F /* PeripheralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64D5D022DE29DD0073BB5F /* PeripheralModel.swift */; };
+		BF75787122E9AA6100827C80 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75787022E9AA6100827C80 /* ChatRoom.swift */; };
+		BF75787622E9AADA00827C80 /* ChatRoomDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75787522E9AADA00827C80 /* ChatRoomDelegate.swift */; };
+		BF75787822E9AAE600827C80 /* ChatRoomDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75787722E9AAE600827C80 /* ChatRoomDataSource.swift */; };
+		BF75787B22E9AE0400827C80 /* UUIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75787A22E9AE0400827C80 /* UUIDManager.swift */; };
+		BF75788122EA863100827C80 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75788022EA863100827C80 /* AlertManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF5C67AE22D0A18300C61904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF5C678E22D0A17D00C61904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF5C679522D0A17D00C61904;
+			remoteInfo = BLETutorial;
+		};
+		BF5C67B922D0A18300C61904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF5C678E22D0A17D00C61904 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF5C679522D0A17D00C61904;
+			remoteInfo = BLETutorial;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF5C679622D0A17D00C61904 /* BLETutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLETutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5C679922D0A17D00C61904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF5C679E22D0A17D00C61904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF5C67A122D0A17D00C61904 /* BLETutorial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BLETutorial.xcdatamodel; sourceTree = "<group>"; };
+		BF5C67A322D0A18200C61904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF5C67A622D0A18200C61904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF5C67A822D0A18200C61904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5C67AD22D0A18300C61904 /* BLETutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLETutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5C67B122D0A18300C61904 /* BLETutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETutorialTests.swift; sourceTree = "<group>"; };
+		BF5C67B322D0A18300C61904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5C67B822D0A18300C61904 /* BLETutorialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLETutorialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF5C67BC22D0A18300C61904 /* BLETutorialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLETutorialUITests.swift; sourceTree = "<group>"; };
+		BF5C67BE22D0A18300C61904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF5C67CB22D0AA0600C61904 /* BLEListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEListViewController.swift; sourceTree = "<group>"; };
+		BF5C67CE22D1B15600C61904 /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		BF5C67D122D1B19F00C61904 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		BF64D5D022DE29DD0073BB5F /* PeripheralModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralModel.swift; sourceTree = "<group>"; };
+		BF75787022E9AA6100827C80 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		BF75787522E9AADA00827C80 /* ChatRoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDelegate.swift; sourceTree = "<group>"; };
+		BF75787722E9AAE600827C80 /* ChatRoomDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomDataSource.swift; sourceTree = "<group>"; };
+		BF75787A22E9AE0400827C80 /* UUIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDManager.swift; sourceTree = "<group>"; };
+		BF75788022EA863100827C80 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF5C679322D0A17D00C61904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5C67D222D1B1A000C61904 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5C67AA22D0A18300C61904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5C67B522D0A18300C61904 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF5C678D22D0A17C00C61904 = {
+			isa = PBXGroup;
+			children = (
+				BF5C679822D0A17D00C61904 /* BLETutorial */,
+				BF5C67B022D0A18300C61904 /* BLETutorialTests */,
+				BF5C67BB22D0A18300C61904 /* BLETutorialUITests */,
+				BF5C679722D0A17D00C61904 /* Products */,
+				BF5C67D022D1B19F00C61904 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BF5C679722D0A17D00C61904 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C679622D0A17D00C61904 /* BLETutorial.app */,
+				BF5C67AD22D0A18300C61904 /* BLETutorialTests.xctest */,
+				BF5C67B822D0A18300C61904 /* BLETutorialUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF5C679822D0A17D00C61904 /* BLETutorial */ = {
+			isa = PBXGroup;
+			children = (
+				BF75787922E9ADF600827C80 /* UUIDs */,
+				BF75786E22E9AA3300827C80 /* BLEWhiteBoard */,
+				BF75786C22E9AA0D00827C80 /* BLEChatRoom */,
+				BF64D5CF22DE29CC0073BB5F /* Model */,
+				BF5C67CD22D1B13600C61904 /* Manager */,
+				BF5C67CA22D0A9DA00C61904 /* Controllers */,
+				BF5C679922D0A17D00C61904 /* AppDelegate.swift */,
+				BF5C679D22D0A17D00C61904 /* Main.storyboard */,
+				BF5C67A322D0A18200C61904 /* Assets.xcassets */,
+				BF5C67A522D0A18200C61904 /* LaunchScreen.storyboard */,
+				BF5C67A822D0A18200C61904 /* Info.plist */,
+				BF5C67A022D0A17D00C61904 /* BLETutorial.xcdatamodeld */,
+			);
+			path = BLETutorial;
+			sourceTree = "<group>";
+		};
+		BF5C67B022D0A18300C61904 /* BLETutorialTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C67B122D0A18300C61904 /* BLETutorialTests.swift */,
+				BF5C67B322D0A18300C61904 /* Info.plist */,
+			);
+			path = BLETutorialTests;
+			sourceTree = "<group>";
+		};
+		BF5C67BB22D0A18300C61904 /* BLETutorialUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C67BC22D0A18300C61904 /* BLETutorialUITests.swift */,
+				BF5C67BE22D0A18300C61904 /* Info.plist */,
+			);
+			path = BLETutorialUITests;
+			sourceTree = "<group>";
+		};
+		BF5C67CA22D0A9DA00C61904 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C67CB22D0AA0600C61904 /* BLEListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF5C67CD22D1B13600C61904 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C67CE22D1B15600C61904 /* BLEManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BF5C67D022D1B19F00C61904 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF5C67D122D1B19F00C61904 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF64D5CF22DE29CC0073BB5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF64D5D022DE29DD0073BB5F /* PeripheralModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF75786C22E9AA0D00827C80 /* BLEChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				BF75787422E9AAC900827C80 /* Delegates */,
+				BF75787322E9AA8100827C80 /* Model */,
+				BF75787222E9AA7B00827C80 /* Manager */,
+				BF75786F22E9AA3C00827C80 /* Controllers */,
+			);
+			path = BLEChatRoom;
+			sourceTree = "<group>";
+		};
+		BF75786E22E9AA3300827C80 /* BLEWhiteBoard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BLEWhiteBoard;
+			sourceTree = "<group>";
+		};
+		BF75786F22E9AA3C00827C80 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF75787022E9AA6100827C80 /* ChatRoom.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF75787222E9AA7B00827C80 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BF75787322E9AA8100827C80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF75788022EA863100827C80 /* AlertManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF75787422E9AAC900827C80 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BF75787522E9AADA00827C80 /* ChatRoomDelegate.swift */,
+				BF75787722E9AAE600827C80 /* ChatRoomDataSource.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		BF75787922E9ADF600827C80 /* UUIDs */ = {
+			isa = PBXGroup;
+			children = (
+				BF75787A22E9AE0400827C80 /* UUIDManager.swift */,
+			);
+			path = UUIDs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF5C679522D0A17D00C61904 /* BLETutorial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF5C67C122D0A18300C61904 /* Build configuration list for PBXNativeTarget "BLETutorial" */;
+			buildPhases = (
+				BF5C679222D0A17D00C61904 /* Sources */,
+				BF5C679322D0A17D00C61904 /* Frameworks */,
+				BF5C679422D0A17D00C61904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLETutorial;
+			productName = BLETutorial;
+			productReference = BF5C679622D0A17D00C61904 /* BLETutorial.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF5C67AC22D0A18300C61904 /* BLETutorialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF5C67C422D0A18300C61904 /* Build configuration list for PBXNativeTarget "BLETutorialTests" */;
+			buildPhases = (
+				BF5C67A922D0A18300C61904 /* Sources */,
+				BF5C67AA22D0A18300C61904 /* Frameworks */,
+				BF5C67AB22D0A18300C61904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF5C67AF22D0A18300C61904 /* PBXTargetDependency */,
+			);
+			name = BLETutorialTests;
+			productName = BLETutorialTests;
+			productReference = BF5C67AD22D0A18300C61904 /* BLETutorialTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF5C67B722D0A18300C61904 /* BLETutorialUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF5C67C722D0A18300C61904 /* Build configuration list for PBXNativeTarget "BLETutorialUITests" */;
+			buildPhases = (
+				BF5C67B422D0A18300C61904 /* Sources */,
+				BF5C67B522D0A18300C61904 /* Frameworks */,
+				BF5C67B622D0A18300C61904 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF5C67BA22D0A18300C61904 /* PBXTargetDependency */,
+			);
+			name = BLETutorialUITests;
+			productName = BLETutorialUITests;
+			productReference = BF5C67B822D0A18300C61904 /* BLETutorialUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF5C678E22D0A17D00C61904 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Jimmy;
+				TargetAttributes = {
+					BF5C679522D0A17D00C61904 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					BF5C67AC22D0A18300C61904 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BF5C679522D0A17D00C61904;
+					};
+					BF5C67B722D0A18300C61904 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = BF5C679522D0A17D00C61904;
+					};
+				};
+			};
+			buildConfigurationList = BF5C679122D0A17D00C61904 /* Build configuration list for PBXProject "BLETutorial" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF5C678D22D0A17C00C61904;
+			productRefGroup = BF5C679722D0A17D00C61904 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF5C679522D0A17D00C61904 /* BLETutorial */,
+				BF5C67AC22D0A18300C61904 /* BLETutorialTests */,
+				BF5C67B722D0A18300C61904 /* BLETutorialUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF5C679422D0A17D00C61904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5C67A722D0A18200C61904 /* LaunchScreen.storyboard in Resources */,
+				BF5C67A422D0A18200C61904 /* Assets.xcassets in Resources */,
+				BF5C679F22D0A17D00C61904 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5C67AB22D0A18300C61904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5C67B622D0A18300C61904 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF5C679222D0A17D00C61904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF75788122EA863100827C80 /* AlertManager.swift in Sources */,
+				BF75787122E9AA6100827C80 /* ChatRoom.swift in Sources */,
+				BF5C67A222D0A17D00C61904 /* BLETutorial.xcdatamodeld in Sources */,
+				BF5C67CF22D1B15600C61904 /* BLEManager.swift in Sources */,
+				BF75787822E9AAE600827C80 /* ChatRoomDataSource.swift in Sources */,
+				BF75787622E9AADA00827C80 /* ChatRoomDelegate.swift in Sources */,
+				BF64D5D122DE29DD0073BB5F /* PeripheralModel.swift in Sources */,
+				BF75787B22E9AE0400827C80 /* UUIDManager.swift in Sources */,
+				BF5C67CC22D0AA0600C61904 /* BLEListViewController.swift in Sources */,
+				BF5C679A22D0A17D00C61904 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5C67A922D0A18300C61904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5C67B222D0A18300C61904 /* BLETutorialTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF5C67B422D0A18300C61904 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF5C67BD22D0A18300C61904 /* BLETutorialUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF5C67AF22D0A18300C61904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF5C679522D0A17D00C61904 /* BLETutorial */;
+			targetProxy = BF5C67AE22D0A18300C61904 /* PBXContainerItemProxy */;
+		};
+		BF5C67BA22D0A18300C61904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF5C679522D0A17D00C61904 /* BLETutorial */;
+			targetProxy = BF5C67B922D0A18300C61904 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF5C679D22D0A17D00C61904 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF5C679E22D0A17D00C61904 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF5C67A522D0A18200C61904 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF5C67A622D0A18200C61904 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF5C67BF22D0A18300C61904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF5C67C022D0A18300C61904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF5C67C222D0A18300C61904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = BLETutorial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.BLETutorial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF5C67C322D0A18300C61904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = BLETutorial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.BLETutorial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF5C67C522D0A18300C61904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = BLETutorialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.BLETutorialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLETutorial.app/BLETutorial";
+			};
+			name = Debug;
+		};
+		BF5C67C622D0A18300C61904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = BLETutorialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.BLETutorialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLETutorial.app/BLETutorial";
+			};
+			name = Release;
+		};
+		BF5C67C822D0A18300C61904 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = BLETutorialUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.BLETutorialUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BLETutorial;
+			};
+			name = Debug;
+		};
+		BF5C67C922D0A18300C61904 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P5JAYPRGQ;
+				INFOPLIST_FILE = BLETutorialUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jimmy.Demo.iOS.BLETutorialUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BLETutorial;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF5C679122D0A17D00C61904 /* Build configuration list for PBXProject "BLETutorial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5C67BF22D0A18300C61904 /* Debug */,
+				BF5C67C022D0A18300C61904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF5C67C122D0A18300C61904 /* Build configuration list for PBXNativeTarget "BLETutorial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5C67C222D0A18300C61904 /* Debug */,
+				BF5C67C322D0A18300C61904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF5C67C422D0A18300C61904 /* Build configuration list for PBXNativeTarget "BLETutorialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5C67C522D0A18300C61904 /* Debug */,
+				BF5C67C622D0A18300C61904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF5C67C722D0A18300C61904 /* Build configuration list for PBXNativeTarget "BLETutorialUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF5C67C822D0A18300C61904 /* Debug */,
+				BF5C67C922D0A18300C61904 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF5C67A022D0A17D00C61904 /* BLETutorial.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF5C67A122D0A17D00C61904 /* BLETutorial.xcdatamodel */,
+			);
+			currentVersion = BF5C67A122D0A17D00C61904 /* BLETutorial.xcdatamodel */;
+			path = BLETutorial.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF5C678E22D0A17D00C61904 /* Project object */;
+}
