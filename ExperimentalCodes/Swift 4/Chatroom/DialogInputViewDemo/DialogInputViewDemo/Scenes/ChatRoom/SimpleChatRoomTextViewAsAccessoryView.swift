@@ -9,11 +9,27 @@
 import Foundation
 import UIKit
 
-class SimpleChatRoomTextViewAsAccessoryView: SimpleChatRoom {
+class SimpleChatRoomTextViewAsAccessoryView: UIViewController {
+    // Public VAR
+    public var delegate: SimpleChatRoomLogDelegate!
     
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
+    public lazy var tableView: UITableView = {
+        let tv = UITableView()
+        tv.allowsSelection = false
+        tv.keyboardDismissMode = .none
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.tableFooterView = UIView()
+        tv.separatorStyle = .none
+        return tv
+    }()
+    
+    private var users: [UserModel] = UserModel.sample()
+    
+    // Use to determine if user is currently the sender or receiver
+    private var isSender = true
+    
+    // Record keyboard frame
+    private var keyboardFrame: CGRect = .zero
     
     private lazy var customizedInputView: UIView = {
         return SimpleTextViewInputView(frame: .zero, delegate: self)
@@ -25,19 +41,29 @@ class SimpleChatRoomTextViewAsAccessoryView: SimpleChatRoom {
         }
     }
     
-    private var bottomSnap: SimpleSnap?
-    private var isInputViewEditing: Bool = false
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
     
-    private var inputViewInitialHeight: CGFloat = 0
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate = SimpleChatRoomLogDelegate(tableView: self.tableView, delegate: self)
+        tableView.panGestureRecognizer.addTarget(self, action: #selector(tableViewPanGestureDetected(_:)))
+        prepareUI()
+    }
     
-    override func tableViewPanGestureDetected(_ panGesture: UIPanGestureRecognizer) {
-        if let view = panGesture.view, view == tableView, let simpleTextViewInputView = inputAccessoryView as? SimpleTextViewInputView, panGesture.location(in: inputAccessoryView).y >= 0 {
-            simpleTextViewInputView.setTextViewEndEditing()
+    @objc func tableViewPanGestureDetected(_ panGesture: UIPanGestureRecognizer) {
+        guard let simpleTextViewInputView = inputAccessoryView as? SimpleTextViewInputView else {
+            return
+        }
+        
+        if let view = panGesture.view, view == tableView, panGesture.location(in: inputAccessoryView).y >= 0 {
+            simpleTextViewInputView.textView.resignFirstResponder()
         }
     }
     
-    override func prepareUI() {
-        super.prepareUI()
+    func prepareUI() {
+        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView
             .top.equalTo(view.top_safeAreaLayoutGuid)
@@ -48,51 +74,23 @@ class SimpleChatRoomTextViewAsAccessoryView: SimpleChatRoom {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        addKeyboardListener()
+        
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: customizedInputView.frame.height, right: 0)
-        inputViewInitialHeight = customizedInputView.frame.height
-        customizedInputViewObserver = customizedInputView.observe(\.bounds, options: [.new, .old], changeHandler: { (view, value) in
-            
-            if let inputView = self.customizedInputView as? SimpleTextViewInputView {
-                // TableView will take care of scrolling right after receiving message
-                // So nothing should be done here.
-                if (inputView.isEditing) {
-                    guard let newBound = value.newValue, let oldBound = value.oldValue else {
-                        return
-                    }
-                    
-                    var deltaHeight = newBound.height - oldBound.height
-                    
-                    let inputViewToTableViewRect = self.customizedInputView.convert(self.customizedInputView.bounds, to: self.tableView)
-                    
-                    if deltaHeight > 0 && inputViewToTableViewRect.minY > self.tableView.contentSize.height {
-                        // if the inputView will not overlap with the tableView's content, then nothing needs to be done.
-                        return
-                    }
-                    
-                    if self.tableView.contentOffset.y + deltaHeight < 0 {
-                        // The tableView should not have a negative offset.y when the inputView is shrinking.
-                        return
-                    }
-                    
-                    if inputViewToTableViewRect.maxY > self.tableView.contentSize.height && (deltaHeight > 0 && (self.tableView.contentSize.height - inputViewToTableViewRect.minY) < deltaHeight) {
-                        // If correspondingRect is only partially overlapping with tableView's Content, only that portion should be offset.
-                        // However, this only occur when deltaHeight > 0 (when inputView is growing)
-                        deltaHeight = self.tableView.contentSize.height - inputViewToTableViewRect.minY
-                    }
-                    DispatchQueue.main.async {
-                        self.tableView.contentOffset = CGPoint(x: self.tableView.contentOffset.x, y: self.tableView.contentOffset.y + deltaHeight)
-                    }
-                }
-            }
-        })
+    }
+    
+    private func addKeyboardListener() {
+        self.addObserveKeyboardWillShow(with: #selector(keyboardListener(_:)), object: nil)
+        self.addObserveKeyboardWillHide(with: #selector(keyboardListener(_:)), object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        customizedInputViewObserver?.invalidate()
+        self.removeObserveKeyboardWillHide(object: nil)
+        self.removeObserveKeyboardWillShow(object: nil)
     }
     
-    override func keyboardListener(_ notification: Notification) {
+    @objc func keyboardListener(_ notification: Notification) {
         guard let userInfo = notification.userInfo as NSDictionary? else {
             return
         }
@@ -101,100 +99,139 @@ class SimpleChatRoomTextViewAsAccessoryView: SimpleChatRoom {
             return
         }
         
+        // Since willHide will never be called when canBecomeFirstResponder = true
         keyboardFrame = keyboardEndFrame.cgRectValue
-        
-        if notification.name == UIResponder.keyboardWillShowNotification {
-            
-            keyboardFrame = keyboardEndFrame.cgRectValue
-            
-        }
     }
-    private func received(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as NSDictionary? else {
-            return
-        }
-        
-        guard let keyboardEndFrame = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else {
-            return
-        }
-        
-        keyboardFrame = keyboardEndFrame.cgRectValue
-        if notification.name == UIResponder.keyboardWillShowNotification {
-            
-        } else if notification.name == UIResponder.keyboardWillHideNotification {
-            
-        }
-    }
-    
-    private var testView: UIView = UIView()
-    private var test2View: UIView = UIView()
 }
 
 //MARK: - SimpleInputViewDelegate
 extension SimpleChatRoomTextViewAsAccessoryView: SimpleInputViewDelegate {
+    
     func send(message: String) {
-        isInputViewEditing = false
-        print("==== DONE END =====")
         let model = SimpleChatModel(message: message, image: nil, isSent: true, sender: isSender ? users[0] : users[1], isSender: isSender)
         delegate.appendMessage(model)
         isSender.toggle()
     }
     
     func textViewDidBeginEditing() {
-        
-        let previousInputViewHeight = customizedInputView.frame.height
-        // AutoLayout customizedInputView
+        let inputViewInitialHeight = customizedInputView.frame.height
         customizedInputView.layoutIfNeeded()
-        let currentInputViewHeight = customizedInputView.frame.height
-        let inputViewDeltaHeight = currentInputViewHeight - previousInputViewHeight
+        let inputViewNewHeight = customizedInputView.frame.height
+        let heightChanged = inputViewNewHeight - inputViewInitialHeight
         
-        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: self.keyboardFrame.height + ((inputViewDeltaHeight > 0) ? inputViewDeltaHeight : 0), right: 0)
-        self.tableView.contentInset = contentInset
-        self.tableView.scrollIndicatorInsets = contentInset
+        // change contentInset of tableview to take into account of the extra height from inputView
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height + heightChanged, right: 0)
+        self.tableView.scrollIndicatorInsets = self.tableView.contentInset
+        // we also need to consider the contentOffset of tableView
+        // so we will face 3 conditions :
+        // 1. inputView does not overlap or intercept with the tableView content
+        // 2. inputView partially overlapping the tableView content
+        // 3. inputView completely overlapping the tableView content
         
+        //MARK: Calculate the proper contentOffset
+        let overlappingRect = customizedInputView.convert(customizedInputView.frame, to: tableView)
+        var visibleRect = overlappingRect
         
-        // Calculate the origin of the rect to be visible
-        var visibleOriginY = tableView.frame.height - currentInputViewHeight + tableView.contentOffset.y
-        
-        var visibleHeight: CGFloat = currentInputViewHeight
-        
-        if visibleOriginY > tableView.contentSize.height {
-            // This means the inputView will either block a small portion of the tableview or nothing at all
-            visibleHeight = tableView.contentSize.height - tableView.contentOffset.y - (keyboardFrame.minY - currentInputViewHeight)
-            visibleOriginY = tableView.contentSize.height - visibleHeight
+        // First Condition : inputView did not intercept with the tableView content
+        if overlappingRect.minY > tableView.contentSize.height {
+            return
         }
         
-        var overLapRect = customizedInputView.convert(customizedInputView.bounds, to: tableView)
-        if overLapRect.origin.y > tableView.contentSize.height {return}
-        
-        if overLapRect.maxY > tableView.contentSize.height {
-            // if the inputView is partially intercept with the tableView's content
+        if overlappingRect.maxY > tableView.contentSize.height {
+            // Second Condition : inputView is partially overlapping the tableView content
+            // Since it is only partially overlapped, so there will only be a small portion below the inputView and we want to show the whole content to user.
             
-            overLapRect.size = CGSize(width: overLapRect.width, height: tableView.contentSize.height - overLapRect.minY)
+            visibleRect.size
+                = CGSize(width: visibleRect.width,
+                         height: tableView.contentSize.height - overlappingRect.minY)
+        } else {
+            // Third Condition : inputView is completely overlapping the tableView content
+            // Here we also have 2 conditions :
+            // 1. the tableView.contentSize is partially overlapping with the keyboard, which is right below the inputView
+            // 2. the tableView.contentSize is completely overlapping with the keyboard and the tableView.contentSize might have greater height than the tableView.bounds.
             
-        } else if overLapRect.maxY < tableView.contentSize.height {
-            // if the inputView is completely located within the tableView's content
-            var hiddenHeight =  tableView.contentSize.height - tableView.contentOffset.y - tableView.bounds.height
-            if hiddenHeight < 0 {
-                hiddenHeight = 0
+            // First Condition : Keyboard + inputView is partially overlapping with tableView's content
+            if overlappingRect.maxY + keyboardFrame.height > tableView.contentSize.height {
+                visibleRect.size
+                    = CGSize(width: visibleRect.size.width,
+                             height: tableView.contentSize.height - overlappingRect.minY)
+            } else {
+                // Second Condition : Keyboard + inputView is completely overlapping with tableView's content
+                visibleRect.size
+                    = CGSize(width: visibleRect.size.width,
+                             height: keyboardFrame.height + heightChanged - inputViewInitialHeight)
             }
-            
-            var expectedHeight = tableView.contentSize.height - overLapRect.minY - hiddenHeight
-            
-            if hiddenHeight > 0 {
-                expectedHeight -= overLapRect.height
-            }
-            
-            overLapRect.size = CGSize(width: overLapRect.width, height: expectedHeight)
         }
         
-        tableView.scrollRectToVisible(overLapRect, animated: true)
+        tableView.scrollRectToVisible(visibleRect, animated: true)
+        
+        
+        /* NOTE :
+         feel free to switch to the code below :
+         // 0.25 duration is the standard keyboard animation duration
+         
+         UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+         self.tableView.contentOffset = CGPoint(x: 0, y: self.tableView.contentOffset.y + visibleRect.height)
+         }.startAnimation()
+         
+         it has the same effect as scrollRectToVisible.
+         */
+    }
+    
+    func textViewDidChange() {
+        // when the text changes, the customizedInputView might grow or shrink.
+        let inputViewInitialHeight = customizedInputView.frame.height
+        customizedInputView.layoutIfNeeded()
+        let inputViewNewHeight = customizedInputView.frame.height
+        let heightChanged = inputViewNewHeight - inputViewInitialHeight
+        
+        let overlappingRect = customizedInputView.convert(customizedInputView.frame, to: tableView)
+        
+        // Grow if heightChanged > 0 vice versa
+        // Similar to didBeginEditing, we need to adjust the contentInset and contentOffset. Also, here we don't need to consider the keyboardFrame or the customizedInputView height, we only need the heightChanged, current contentInset and contentOffset.
+        
+        tableView.contentInset
+            = UIEdgeInsets(
+                top: tableView.contentInset.top,
+                left: tableView.contentInset.left,
+                bottom: tableView.contentInset.bottom + heightChanged,
+                right: tableView.contentInset.right)
+        tableView.scrollIndicatorInsets = tableView.contentInset
+        // So there are also different situations here :
+        // 1. the heightChanged portion does not overlap with tableView's content
+        // 2. the heightChanged portion does overlap with tableView's content
+        let contentOffset = self.tableView.contentOffset
+        var newContentOffset = CGPoint(x: contentOffset.x,
+                      y: contentOffset.y + heightChanged)
+        
+        if newContentOffset.y < 0 || heightChanged == 0 {return}
+        
+        if heightChanged > 0 {
+            // Growing
+            if overlappingRect.minY > self.tableView.contentSize.height {
+                return
+            }
+        } else {
+            // Shrinking
+            let distanceBetweenContentAndInputView = self.tableView.contentSize.height - overlappingRect.minY
+            if heightChanged > distanceBetweenContentAndInputView {
+                newContentOffset = CGPoint(x: contentOffset.x,
+                                           y: contentOffset.y + distanceBetweenContentAndInputView)
+            }
+        }
+        
+        
+        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) {
+            self.tableView.contentOffset
+                = newContentOffset
+        }.startAnimation()
     }
     
     func textViewDidEndEditing() {
-        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: customizedInputView.frame.height, right: 0)
-        self.tableView.contentInset = contentInset
-        self.tableView.scrollIndicatorInsets = contentInset
+        // when ended, the textView will resignFirstReponder, meaning the keyboard should now be hidden
+        customizedInputView.layoutIfNeeded()
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: customizedInputView.frame.height, right: 0)
+        tableView.scrollIndicatorInsets = tableView.contentInset
     }
 }
 

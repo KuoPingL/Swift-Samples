@@ -14,7 +14,7 @@ class SimpleTextViewInputView: InputBaseView {
     public weak var delegate: SimpleInputViewDelegate?
     
     public var maximumNumberOfLines = 3
-    
+    public var action: TextViewActions = .didEndEditing
     public var isEditing = false
     
     override var intrinsicContentSize: CGSize {
@@ -23,7 +23,7 @@ class SimpleTextViewInputView: InputBaseView {
     
     private var textViewMaximumHeight: CGFloat = 0
     
-    private lazy var textView: UITextView = {
+    public lazy var textView: UITextView = {
         let tv = UITextView()
         tv.font = UIFont.systemFont(ofSize: 20)
         tv.bounces = false
@@ -58,6 +58,7 @@ class SimpleTextViewInputView: InputBaseView {
     private lazy var sendButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(.darkGray, for: .normal)
         b.setTitle("_send".localized, for: .normal)
         b.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
         return b
@@ -68,7 +69,7 @@ class SimpleTextViewInputView: InputBaseView {
         if text.isEmpty {
             return
         } else {
-            isEditing = false
+            action = .didEndEditing
             delegate?.send(message: textView.text)
             textView.text = ""
             textViewDidChange(textView)
@@ -85,8 +86,24 @@ class SimpleTextViewInputView: InputBaseView {
         prepareUI()
     }
     
+    public func truncateTextView() {
+        textView.isScrollEnabled = false
+        textViewHeightSnap.constant = 40
+        textView.textContainer.lineBreakMode = .byTruncatingTail
+    }
+    
+    public func resizeTextView() {
+        textView.textContainer.lineBreakMode = .byWordWrapping
+        textViewDidBeginEditing(textView)
+//        textViewDidChange(textView)
+    }
+    
     public func setTextViewEndEditing() {
         toggleTextViewHeight(.didEndEditing)
+    }
+    
+    public func setTextViewDidBeginEditing() {
+        toggleTextViewHeight(.didBeginEditing)
     }
     
     override func prepareUI() {
@@ -139,23 +156,16 @@ extension SimpleTextViewInputView: UITextViewDelegate {
         toggleTextViewHeight(.didBeginEditing)
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if !text.isEmpty {
-            isEditing = true
-        }
-        return true
-    }
-    
     func textViewDidChange(_ textView: UITextView) {
         toggleTextViewHeight(.didChange)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        isEditing = true
         toggleTextViewHeight(.didEndEditing)
     }
     
     func toggleTextViewHeight(_ action: TextViewActions) {
+        self.action = action
         switch action {
         case .didBeginEditing,
              .didChange:
@@ -185,6 +195,7 @@ extension SimpleTextViewInputView: UITextViewDelegate {
                 }
                 DispatchQueue.main.async {
                     self.textView.selectedRange.location = self.textView.text.count
+                    self.textView.scrollRangeToVisible(NSRange(location: self.textView.text.count, length: 1))
                 }
             } else {
                 delegate?.textViewDidChange()
