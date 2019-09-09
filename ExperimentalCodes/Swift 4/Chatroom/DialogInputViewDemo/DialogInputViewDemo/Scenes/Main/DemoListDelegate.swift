@@ -9,15 +9,19 @@
 import Foundation
 import UIKit
 
+protocol DemoListDelegatePresenter: UIViewController {
+    func didSelect(_ demo: SimpleDemos)
+}
+
 class DemoListDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
     
     private weak var tableView: UITableView?
-    private weak var delegate: UIViewController?
+    private weak var delegate: DemoListDelegatePresenter?
     private var demos: [[String]] = Demo.demos
     private let cellID = "Demos"
     
     
-    init(tableView: UITableView, delegate: UIViewController) {
+    init(tableView: UITableView, delegate: DemoListDelegatePresenter) {
         super.init()
         self.tableView = tableView
         self.delegate = delegate
@@ -81,15 +85,10 @@ class DemoListDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let description = (demos[indexPath.section])[indexPath.row]
         Demo.demosWithDescription(description) { (simpleDemo) in
-            
-            let vc = SimpleDemoFactory.demo(simpleDemo)
-            vc.title = simpleDemo.description
-            self.delegate?.navigationController?.pushViewController(vc, animated: true)
+            delegate?.didSelect(simpleDemo)
             DispatchQueue.main.async {
                 tableView.deselectRow(at: indexPath, animated: false)
             }
-            
         }
-        
     }
 }
